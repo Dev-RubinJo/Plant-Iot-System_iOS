@@ -51,6 +51,8 @@ class ConnectionViewController: UIViewController {
         
         self.getAWSClientID(completion: { (nil, error) in })
         
+        
+        print("getAWSClientID 성공")
         self.logTextView.text = self.clientId
         self.connectToAWSIoT(clientId: self.clientId)
         
@@ -102,6 +104,19 @@ class ConnectionViewController: UIViewController {
                 // Register subscriptions here
                 self.registerSubscriptions()
                 // Publish a boot message if required
+                
+                //var params = ["state":["reported":["plantLed":"OFF"]]] as [String : Any]
+                var reported = [String:Any]()
+                reported = ["reported" : ["plantLed" : "OFF"]]
+                let entries = ["state": reported]
+                //let param = "state:{reported:{plantLed:ON}}}"
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: entries)
+                    let json = String(data: jsonData, encoding: .utf8)
+                    self.publishMessage(message: jsonData, topic: update)
+                   // self.publishMessage(message: json, topic: update)
+                    print(json!)
+                } catch { print(error) }
                 
             case .connectionError: print("AWS IoT connection error")
             case .connectionRefused: print("AWS IoT connection refused")
@@ -164,13 +179,18 @@ class ConnectionViewController: UIViewController {
             }
     }
     
-    func publishMessage(message: String!, topic: String!) {
+    func publishMessage(message: Data!, topic: String!) {
       let dataManager = AWSIoTDataManager(forKey: "kDataManager")
-      dataManager.publishString(message, onTopic: topic, qoS: .messageDeliveryAttemptedAtLeastOnce) // Set QoS as needed
+        
+        dataManager.publishData(message, onTopic: topic, qoS: .messageDeliveryAttemptedAtLeastOnce)
+      //dataManager.publishString(message, onTopic: topic, qoS: .messageDeliveryAttemptedAtLeastOnce) // Set QoS as needed
+        
+        print("메세지 퍼블리싱했댱")
     }
 }
 extension ConnectionViewController {
     @objc func ledOnOffFunc(_ sender: UIButton) {
+        
         
     }
 }
