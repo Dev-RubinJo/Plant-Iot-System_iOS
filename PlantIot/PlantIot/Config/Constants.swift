@@ -9,11 +9,11 @@
 import Foundation
 import AWSCore
 
-let CertificateSigningRequestCommonName = "IoT_KAU"
+let CertificateSigningRequestCommonName = "iotService"
 let CertificateSigningRequestCountryName = "Korea"
 let CertificateSigningRequestOrganizationName = "KAU"
-let CertificateSigningRequestOrganizationalUnitName = "Your Organizational Unit"
-let PolicyName = "YourPolicyName"
+let CertificateSigningRequestOrganizationalUnitName = "KAU_IOT"
+let PolicyName = "myIotPolicy"
 
 
 let AWSRegion = AWSRegionType.APNortheast2 // e.g. AWSRegionType.USEast1

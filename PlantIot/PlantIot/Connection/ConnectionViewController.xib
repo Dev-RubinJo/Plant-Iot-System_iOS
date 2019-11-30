@@ -1,22 +1,48 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConnectionViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConnectionViewController" customModule="PlantIot" customModuleProvider="target">
             <connections>
+                <outlet property="logTextView" destination="bMA-eA-ufd" id="6Xk-Li-hcJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tD3-dF-Uoo">
+                    <rect key="frame" x="150" y="154" width="114" height="30"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bMA-eA-ufd">
+                    <rect key="frame" x="40" y="294" width="334" height="308"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bMA-eA-ufd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="959-rd-uRT"/>
+                <constraint firstItem="bMA-eA-ufd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="A5j-fr-GVG"/>
+                <constraint firstItem="bMA-eA-ufd" firstAttribute="top" secondItem="tD3-dF-Uoo" secondAttribute="bottom" constant="110" id="J7K-ZK-xlu"/>
+                <constraint firstItem="bMA-eA-ufd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ocn-Jd-8Fe"/>
+                <constraint firstItem="tD3-dF-Uoo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="150" id="RsW-MU-KI7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tD3-dF-Uoo" secondAttribute="trailing" constant="150" id="TG5-iN-lBu"/>
+                <constraint firstItem="tD3-dF-Uoo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="110" id="aHL-t3-05t"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bMA-eA-ufd" secondAttribute="trailing" constant="40" id="fuf-rc-J4k"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="141" y="154"/>
         </view>
     </objects>
 </document>

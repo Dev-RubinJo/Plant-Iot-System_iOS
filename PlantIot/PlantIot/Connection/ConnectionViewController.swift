@@ -12,7 +12,6 @@ import AWSMobileClient
 
 class ConnectionViewController: UIViewController {
     
-    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var logTextView: UITextView!
 
     @objc var connected = false;
@@ -23,197 +22,31 @@ class ConnectionViewController: UIViewController {
     @objc var iotDataManager: AWSIoTDataManager!;
     @objc var iotManager: AWSIoTManager!;
     @objc var iot: AWSIoT!
+    
+    @objc var clientId: String = ""
+//    var payload: Dictionary = [:]
 
-    @IBAction func connectButtonPressed(_ sender: UIButton) {
-
-        let tabBarViewController = tabBarController as! CustomTabBarController
-
-        sender.isEnabled = false
-
-        func mqttEventCallback( _ status: AWSIoTMQTTStatus )
-        {
-            DispatchQueue.main.async {
-                print("connection status = \(status.rawValue)")
-                switch(status)
-                {
-                    case .connecting:
-                        tabBarViewController.mqttStatus = "Connecting..."
-                        print( tabBarViewController.mqttStatus )
-                        self.logTextView.text = tabBarViewController.mqttStatus
-
-                    case .connected:
-                        tabBarViewController.mqttStatus = "Connected"
-                        print( tabBarViewController.mqttStatus )
-                        sender.setTitle( "Disconnect", for:UIControl.State())
-                        self.activityIndicatorView.stopAnimating()
-                        self.connected = true
-                        sender.isEnabled = true
-                        let uuid = UUID().uuidString;
-                        let defaults = UserDefaults.standard
-                        let certificateId = defaults.string( forKey: "certificateId")
-
-                        self.logTextView.text = "Using certificate:\n\(certificateId!)\n\n\nClient ID:\n\(uuid)"
-
-                        tabBarViewController.viewControllers = [ self, self.publishViewController, self.subscribeViewController ]
-
-                    case .disconnected:
-                        tabBarViewController.mqttStatus = "Disconnected"
-                        print( tabBarViewController.mqttStatus )
-                        self.activityIndicatorView.stopAnimating()
-                        self.logTextView.text = nil
-
-                    case .connectionRefused:
-                        tabBarViewController.mqttStatus = "Connection Refused"
-                        print( tabBarViewController.mqttStatus )
-                        self.activityIndicatorView.stopAnimating()
-                        self.logTextView.text = tabBarViewController.mqttStatus
-
-                    case .connectionError:
-                        tabBarViewController.mqttStatus = "Connection Error"
-                        print( tabBarViewController.mqttStatus )
-                        self.activityIndicatorView.stopAnimating()
-                        self.logTextView.text = tabBarViewController.mqttStatus
-
-                    case .protocolError:
-                        tabBarViewController.mqttStatus = "Protocol Error"
-                        print( tabBarViewController.mqttStatus )
-                        self.activityIndicatorView.stopAnimating()
-                        self.logTextView.text = tabBarViewController.mqttStatus
-
-                    default:
-                        tabBarViewController.mqttStatus = "Unknown State"
-                        print("unknown state: \(status.rawValue)")
-                        self.activityIndicatorView.stopAnimating()
-                        self.logTextView.text = tabBarViewController.mqttStatus
-                }
-                
-                NotificationCenter.default.post( name: Notification.Name(rawValue: "connectionStatusChanged"), object: self )
-            }
-        }
-
-        if (connected == false)
-        {
-            activityIndicatorView.startAnimating()
-
-            let defaults = UserDefaults.standard
-            var certificateId = defaults.string( forKey: "certificateId")
-
-            if (certificateId == nil)
-            {
-                DispatchQueue.main.async {
-                    self.logTextView.text = "No identity available, searching bundle..."
-                }
-                
-                // No certificate ID has been stored in the user defaults; check to see if any .p12 files
-                // exist in the bundle.
-                let myBundle = Bundle.main
-                let myImages = myBundle.paths(forResourcesOfType: "p12" as String, inDirectory:nil)
-                let uuid = UUID().uuidString;
-                
-                if (myImages.count > 0) {
-                    // At least one PKCS12 file exists in the bundle.  Attempt to load the first one
-                    // into the keychain (the others are ignored), and set the certificate ID in the
-                    // user defaults as the filename.  If the PKCS12 file requires a passphrase,
-                    // you'll need to provide that here; this code is written to expect that the
-                    // PKCS12 file will not have a passphrase.
-                    if let data = try? Data(contentsOf: URL(fileURLWithPath: myImages[0])) {
-                        DispatchQueue.main.async {
-                            self.logTextView.text = "found identity \(myImages[0]), importing..."
-                        }
-                        if AWSIoTManager.importIdentity( fromPKCS12Data: data, passPhrase:"", certificateId:myImages[0]) {
-                            // Set the certificate ID and ARN values to indicate that we have imported
-                            // our identity from the PKCS12 file in the bundle.
-                            defaults.set(myImages[0], forKey:"certificateId")
-                            defaults.set("from-bundle", forKey:"certificateArn")
-                            DispatchQueue.main.async {
-                                self.logTextView.text = "Using certificate: \(myImages[0]))"
-                                self.iotDataManager.connectUsingWebSocket( withClientId: uuid, cleanSession:true, statusCallback: mqttEventCallback)
-                            }
-                        }
-                    }
-                }
-                
-                certificateId = defaults.string( forKey: "certificateId")
-                if (certificateId == nil) {
-                    DispatchQueue.main.async {
-                        self.logTextView.text = "No identity found in bundle, creating one..."
-                    }
-
-                    // Now create and store the certificate ID in NSUserDefaults
-                    let csrDictionary = [ "commonName":CertificateSigningRequestCommonName, "countryName":CertificateSigningRequestCountryName, "organizationName":CertificateSigningRequestOrganizationName, "organizationalUnitName":CertificateSigningRequestOrganizationalUnitName ]
-
-                    self.iotManager.createKeysAndCertificate(fromCsr: csrDictionary, callback: {  (response ) -> Void in
-                        if (response != nil)
-                        {
-                            defaults.set(response?.certificateId, forKey:"certificateId")
-                            defaults.set(response?.certificateArn, forKey:"certificateArn")
-                            certificateId = response?.certificateId
-                            print("response: [\(String(describing: response))]")
-
-                            let attachPrincipalPolicyRequest = AWSIoTAttachPrincipalPolicyRequest()
-                            attachPrincipalPolicyRequest?.policyName = PolicyName
-                            attachPrincipalPolicyRequest?.principal = response?.certificateArn
-                            
-                            // Attach the policy to the certificate
-                            self.iot.attachPrincipalPolicy(attachPrincipalPolicyRequest!).continueWith (block: { (task) -> AnyObject? in
-                                if let error = task.error {
-                                    print("failed: [\(error)]")
-                                }
-                                print("result: [\(String(describing: task.result))]")
-                                
-                                // Connect to the AWS IoT platform
-                                if (task.error == nil)
-                                {
-                                    DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
-                                        self.logTextView.text = "Using certificate: \(certificateId!)"
-//                                        self.iotDataManager.connect( withClientId: uuid, cleanSession:true, certificateId:certificateId!, statusCallback: mqttEventCallback)
-                                        self.iotDataManager.connectUsingWebSocket( withClientId: uuid, cleanSession:true, statusCallback: mqttEventCallback)
-
-                                    })
-                                }
-                                return nil
-                            })
-                        }
-                        else
-                        {
-                            DispatchQueue.main.async {
-                                sender.isEnabled = true
-                                self.activityIndicatorView.stopAnimating()
-                                self.logTextView.text = "Unable to create keys and/or certificate, check values in Constants.swift"
-                            }
-                        }
-                    } )
-                }
-            }
-            else
-            {
-                let uuid = UUID().uuidString;
-
-                // Connect to the AWS IoT service
-//                iotDataManager.connect( withClientId: uuid, cleanSession:true, certificateId:certificateId!, statusCallback: mqttEventCallback)
-                self.iotDataManager.connectUsingWebSocket( withClientId: uuid, cleanSession:true, statusCallback: mqttEventCallback)
-            }
-        }
-        else
-        {
-            activityIndicatorView.startAnimating()
-            logTextView.text = "Disconnecting..."
-
-            DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
-                self.iotDataManager.disconnect();
-                DispatchQueue.main.async {
-                    self.activityIndicatorView.stopAnimating()
-                    self.connected = false
-                    sender.setTitle( "Connect", for:UIControl.State())
-                    sender.isEnabled = true
-                    tabBarViewController.viewControllers = [ self, self.configurationViewController ]
-                }
-            }
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Create AWS credentials and configuration
+        let credentials = AWSCognitoCredentialsProvider(regionType: .APNortheast2, identityPoolId: "ap-northeast-2:dbf2e92e-a032-4b12-b28c-e74e378af20f")
+        let configuration = AWSServiceConfiguration(region: .APNortheast2, credentialsProvider: credentials)
+        
+        // Initialising AWS IoT And IoT DataManager
+        AWSIoT.register(with: configuration!, forKey: "kAWSIoT")  // Same configuration var as above
+        let iotEndPoint = AWSEndpoint(urlString: "wss://a2iilqapybb349-ats.iot.ap-northeast-2.amazonaws.com/mqtt") // Access from AWS IoT Core --> Settings
+        let iotDataConfiguration = AWSServiceConfiguration(region: .APNortheast2,     // Use AWS typedef .Region
+                                                           endpoint: iotEndPoint,
+                                                           credentialsProvider: credentials)  // credentials is the same var as created above
+            
+        AWSIoTDataManager.register(with: iotDataConfiguration!, forKey: "kDataManager")
+
+        // Access the AWSDataManager instance as follows:
+        let dataManager = AWSIoTDataManager(forKey: "kDataManager")
+        
+        self.getAWSClientID(completion: { (nil, error) in })
         
         let tabBarViewController = tabBarController as! CustomTabBarController
         publishViewController = tabBarViewController.viewControllers![1]
@@ -221,7 +54,21 @@ class ConnectionViewController: UIViewController {
         configurationViewController = tabBarViewController.viewControllers![3]
 
         tabBarViewController.viewControllers = [ self, configurationViewController ]
-//        logTextView.resignFirstResponder()
+        self.logTextView.text = self.clientId
+        self.connectToAWSIoT(clientId: self.clientId)
+        
+        
+        logTextView.resignFirstResponder()
+        self.registerSubscriptions()
+//        print(self.payload)
+        
+//        while true {
+//            self.delayWithSecondsOnUI(1.0, completion: {
+//                print(1)
+//                self.registerSubscriptions()
+//            })
+//        }
+        
 
 //        // Initialize AWSMobileClient for authorization
 //        AWSMobileClient.sharedInstance().initialize { (userState, error) in
@@ -231,24 +78,134 @@ class ConnectionViewController: UIViewController {
 //            }
 //            print("AWSMobileClient initialized.")
 //        }
+//
+//        // Init IOT
+//        let iotEndPoint = AWSEndpoint(urlString: IOT_ENDPOINT)
+//
+//        // Configuration for AWSIoT control plane APIs
+//        let iotConfiguration = AWSServiceConfiguration(region: .APNortheast2, credentialsProvider: AWSMobileClient.sharedInstance().getCredentialsProvider())
+//
+//        // Configuration for AWSIoT data plane APIs
+//        let iotDataConfiguration = AWSServiceConfiguration(region: .APNortheast2,
+//                                                           endpoint: iotEndPoint,
+//                                                           credentialsProvider: AWSMobileClient.sharedInstance().getCredentialsProvider())
+//        AWSServiceManager.default().defaultServiceConfiguration = iotConfiguration
+//
+//        iotManager = AWSIoTManager.default()
+//        iot = AWSIoT.default()
+//
+//        AWSIoTDataManager.register(with: iotDataConfiguration!, forKey: ASWIoTDataManager)
+//        iotDataManager = AWSIoTDataManager(forKey: ASWIoTDataManager)
+    }
+    
+    func delayWithSecondsOnUI(_ seconds: Double, completion: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            completion()
+        }
+    }
+    
+    
+    func delayWithSecondsOnGlobal(_ seconds: Double, completion: @escaping () -> ()) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + seconds) {
+            completion()
+        }
+    }
+    
+    func getAWSClientID(completion: @escaping (_ clientId: String?,_ error: Error? ) -> Void) {
+        // Depending on your scope you may still have access to the original credentials var
+        let credentials = AWSCognitoCredentialsProvider(regionType: .APNortheast2, identityPoolId: "ap-northeast-2:dbf2e92e-a032-4b12-b28c-e74e378af20f")
         
-        // Init IOT
-        let iotEndPoint = AWSEndpoint(urlString: IOT_ENDPOINT)
+        credentials.getIdentityId().continueWith(block: { (task:AWSTask<NSString>) -> Any? in
+            if let error = task.error as NSError? {
+                print("Failed to get client ID => \(error)")
+                completion(nil, error)
+                return nil  // Required by AWSTask closure
+            }
+            
+            let clientId = task.result! as String
+            self.clientId = clientId
+            print("Got client ID => \(clientId)")
+            completion(clientId, nil)
+            return nil // Required by AWSTask closure
+        })
+    }
+    
+    func connectToAWSIoT(clientId: String!) {
         
-        // Configuration for AWSIoT control plane APIs
-        let iotConfiguration = AWSServiceConfiguration(region: .APNortheast2, credentialsProvider: AWSMobileClient.sharedInstance().getCredentialsProvider())
+        func mqttEventCallback(_ status: AWSIoTMQTTStatus ) {
+            switch status {
+            case .connecting: print("Connecting to AWS IoT")
+            case .connected:
+                print("Connected to AWS IoT")
+                // Register subscriptions here
+                self.registerSubscriptions()
+                // Publish a boot message if required
+            case .connectionError: print("AWS IoT connection error")
+            case .connectionRefused: print("AWS IoT connection refused")
+            case .protocolError: print("AWS IoT protocol error")
+            case .disconnected: print("AWS IoT disconnected")
+            case .unknown: print("AWS IoT unknown state")
+            default: print("Error - unknown MQTT state")
+            }
+        }
         
-        // Configuration for AWSIoT data plane APIs
-        let iotDataConfiguration = AWSServiceConfiguration(region: .APNortheast2,
-                                                           endpoint: iotEndPoint,
-                                                           credentialsProvider: AWSMobileClient.sharedInstance().getCredentialsProvider())
-        AWSServiceManager.default().defaultServiceConfiguration = iotConfiguration
+        // Ensure connection gets performed background thread (so as not to block the UI)
+        DispatchQueue.global(qos: .background).async {
+            do {
+                print("Attempting to connect to IoT device gateway with ID = \(clientId)")
+                let dataManager = AWSIoTDataManager(forKey: "kDataManager")
+                dataManager.connectUsingWebSocket(withClientId: clientId,
+                                                  cleanSession: true,
+                                                  statusCallback: mqttEventCallback)
+                
+            } catch {
+//                print("Error, failed to connect to device gateway => \(error!)")
+                print("Error, failed to connect to device gateway => ")
+            }
+        }
+    }
+    
+    func registerSubscriptions() {
+        print(123)
+        func messageReceived(payload: Data) {
+            print(1)
+            let payloadDictionary = jsonDataToDict(jsonData: payload)
+            print("Message received: \(payloadDictionary)")
+//            self.payload = payloadDictionary
+            
+            // Handle message event here...
+        }
+        
+        let updateDelta = "$aws/things/iotService/shadow/update/delta"
+    
+//        let topicArray = ["topicOne", "topicTwo", "topicThree"]
+        let topicArray = [updateDelta]
+        let dataManager = AWSIoTDataManager(forKey: "kDataManager")
+        
+        for topic in topicArray {
+            print("Registering subscription to => \(topic)")
+            dataManager.subscribe(toTopic: topic,
+                                  qoS: .messageDeliveryAttemptedAtMostOnce,  // Set according to use case
+                                  messageCallback: messageReceived)
+        }
+    }
 
-        iotManager = AWSIoTManager.default()
-        iot = AWSIoT.default()
-
-        AWSIoTDataManager.register(with: iotDataConfiguration!, forKey: ASWIoTDataManager)
-        iotDataManager = AWSIoTDataManager(forKey: ASWIoTDataManager)
+    func jsonDataToDict(jsonData: Data?) -> Dictionary <String, Any> {
+            // Converts data to dictionary or nil if error
+            do {
+                let jsonDict = try JSONSerialization.jsonObject(with: jsonData!, options: [])
+                let convertedDict = jsonDict as! [String: Any]
+                return convertedDict
+            } catch {
+                // Couldn't get JSON
+                print(error.localizedDescription)
+                return [:]
+            }
+    }
+    
+    func publishMessage(message: String!, topic: String!) {
+      let dataManager = AWSIoTDataManager(forKey: "kDataManager")
+      dataManager.publishString(message, onTopic: topic, qoS: .messageDeliveryAttemptedAtLeastOnce) // Set QoS as needed
     }
 }
 

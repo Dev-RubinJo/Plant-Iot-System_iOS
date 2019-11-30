@@ -26,6 +26,7 @@
 		4388754923902C8400C96614 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388754823902C8400C96614 /* BaseTabBarController.swift */; };
 		4388754E23902E0F00C96614 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388754C23902E0F00C96614 /* SubscribeViewController.swift */; };
 		4388754F23902E0F00C96614 /* SubscribeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4388754D23902E0F00C96614 /* SubscribeViewController.xib */; };
+		438875512390AEFE00C96614 /* awsiot-identity.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 438875502390AEFD00C96614 /* awsiot-identity.p12 */; };
 		63C5260BCF85D25B4758461E /* Pods_PlantIot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C13E27D94E906337E2B946 /* Pods_PlantIot.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		4388754823902C8400C96614 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		4388754C23902E0F00C96614 /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
 		4388754D23902E0F00C96614 /* SubscribeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscribeViewController.xib; sourceTree = "<group>"; };
+		438875502390AEFD00C96614 /* awsiot-identity.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "awsiot-identity.p12"; path = "../../../certification/awsiot-identity.p12"; sourceTree = "<group>"; };
 		8B3CA416075516F79DC9F6C6 /* Pods-PlantIot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.release.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.release.xcconfig"; sourceTree = "<group>"; };
 		94CF3BED0379354907F8A09D /* Pods-PlantIot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.debug.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 		438875302390018D00C96614 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				438875502390AEFD00C96614 /* awsiot-identity.p12 */,
 				43887531239001A100C96614 /* Constants.swift */,
 				438875332390274700C96614 /* CustomTabBarController.swift */,
 				4388754823902C8400C96614 /* BaseTabBarController.swift */,
@@ -256,6 +259,7 @@
 			files = (
 				43887541239028A600C96614 /* PublishViewController.xib in Resources */,
 				43887546239028E200C96614 /* ConfigurationViewController.xib in Resources */,
+				438875512390AEFE00C96614 /* awsiot-identity.p12 in Resources */,
 				4388752A238FFCAE00C96614 /* awsconfiguration.json in Resources */,
 				4340E44A2384D7FF00CE41B1 /* LaunchScreen.storyboard in Resources */,
 				4340E4472384D7FF00CE41B1 /* Assets.xcassets in Resources */,

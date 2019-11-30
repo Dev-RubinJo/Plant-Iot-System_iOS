@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import AWSCore
 
 class CustomTabBarController: UITabBarController {
+    
+    
+
+    
     
     @objc var mqttStatus: String = "Disconnected"
     @objc var topic: String = "slider"
