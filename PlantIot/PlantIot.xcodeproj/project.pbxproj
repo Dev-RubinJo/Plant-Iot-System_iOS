@@ -12,21 +12,12 @@
 		4340E4472384D7FF00CE41B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4340E4462384D7FF00CE41B1 /* Assets.xcassets */; };
 		4340E44A2384D7FF00CE41B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4340E4482384D7FF00CE41B1 /* LaunchScreen.storyboard */; };
 		4388752A238FFCAE00C96614 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43887529238FFCAE00C96614 /* awsconfiguration.json */; };
-		4388752E238FFE7B00C96614 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388752C238FFE7B00C96614 /* MainViewController.swift */; };
-		4388752F238FFE7B00C96614 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4388752D238FFE7B00C96614 /* MainViewController.xib */; };
 		43887532239001A100C96614 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43887531239001A100C96614 /* Constants.swift */; };
 		438875342390274700C96614 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438875332390274700C96614 /* CustomTabBarController.swift */; };
 		43887538239027B800C96614 /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43887536239027B800C96614 /* ConnectionViewController.swift */; };
 		43887539239027B800C96614 /* ConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43887537239027B800C96614 /* ConnectionViewController.xib */; };
 		4388753C239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388753B239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift */; };
-		43887540239028A600C96614 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388753E239028A600C96614 /* PublishViewController.swift */; };
-		43887541239028A600C96614 /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4388753F239028A600C96614 /* PublishViewController.xib */; };
-		43887545239028E200C96614 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43887543239028E200C96614 /* ConfigurationViewController.swift */; };
-		43887546239028E200C96614 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43887544239028E200C96614 /* ConfigurationViewController.xib */; };
 		4388754923902C8400C96614 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388754823902C8400C96614 /* BaseTabBarController.swift */; };
-		4388754E23902E0F00C96614 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388754C23902E0F00C96614 /* SubscribeViewController.swift */; };
-		4388754F23902E0F00C96614 /* SubscribeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4388754D23902E0F00C96614 /* SubscribeViewController.xib */; };
-		438875512390AEFE00C96614 /* awsiot-identity.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 438875502390AEFD00C96614 /* awsiot-identity.p12 */; };
 		63C5260BCF85D25B4758461E /* Pods_PlantIot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C13E27D94E906337E2B946 /* Pods_PlantIot.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,21 +30,12 @@
 		4340E4492384D7FF00CE41B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4340E44B2384D7FF00CE41B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43887529238FFCAE00C96614 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
-		4388752C238FFE7B00C96614 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		4388752D238FFE7B00C96614 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		43887531239001A100C96614 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		438875332390274700C96614 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		43887536239027B800C96614 /* ConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
 		43887537239027B800C96614 /* ConnectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectionViewController.xib; sourceTree = "<group>"; };
 		4388753B239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionViewController+UITextViewDelegate.swift"; sourceTree = "<group>"; };
-		4388753E239028A600C96614 /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
-		4388753F239028A600C96614 /* PublishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishViewController.xib; sourceTree = "<group>"; };
-		43887543239028E200C96614 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
-		43887544239028E200C96614 /* ConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationViewController.xib; sourceTree = "<group>"; };
 		4388754823902C8400C96614 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
-		4388754C23902E0F00C96614 /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
-		4388754D23902E0F00C96614 /* SubscribeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscribeViewController.xib; sourceTree = "<group>"; };
-		438875502390AEFD00C96614 /* awsiot-identity.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "awsiot-identity.p12"; path = "../../../certification/awsiot-identity.p12"; sourceTree = "<group>"; };
 		8B3CA416075516F79DC9F6C6 /* Pods-PlantIot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.release.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.release.xcconfig"; sourceTree = "<group>"; };
 		94CF3BED0379354907F8A09D /* Pods-PlantIot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.debug.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,10 +84,6 @@
 			children = (
 				438875302390018D00C96614 /* Config */,
 				438875352390279100C96614 /* Connection */,
-				4388753D2390288C00C96614 /* Publish */,
-				43887542239028C500C96614 /* Configuration */,
-				4388754B23902DF100C96614 /* Subscribe */,
-				4388752B238FFE5700C96614 /* Main */,
 				4340E43D2384D7FC00CE41B1 /* AppDelegate.swift */,
 				4340E43F2384D7FC00CE41B1 /* SceneDelegate.swift */,
 				4340E4462384D7FF00CE41B1 /* Assets.xcassets */,
@@ -116,19 +94,9 @@
 			path = PlantIot;
 			sourceTree = "<group>";
 		};
-		4388752B238FFE5700C96614 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				4388752C238FFE7B00C96614 /* MainViewController.swift */,
-				4388752D238FFE7B00C96614 /* MainViewController.xib */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		438875302390018D00C96614 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				438875502390AEFD00C96614 /* awsiot-identity.p12 */,
 				43887531239001A100C96614 /* Constants.swift */,
 				438875332390274700C96614 /* CustomTabBarController.swift */,
 				4388754823902C8400C96614 /* BaseTabBarController.swift */,
@@ -152,41 +120,6 @@
 				4388753B239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift */,
 			);
 			path = extension;
-			sourceTree = "<group>";
-		};
-		4388753D2390288C00C96614 /* Publish */ = {
-			isa = PBXGroup;
-			children = (
-				4388753E239028A600C96614 /* PublishViewController.swift */,
-				4388753F239028A600C96614 /* PublishViewController.xib */,
-			);
-			path = Publish;
-			sourceTree = "<group>";
-		};
-		43887542239028C500C96614 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				438875472390290500C96614 /* extension */,
-				43887543239028E200C96614 /* ConfigurationViewController.swift */,
-				43887544239028E200C96614 /* ConfigurationViewController.xib */,
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
-		438875472390290500C96614 /* extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = extension;
-			sourceTree = "<group>";
-		};
-		4388754B23902DF100C96614 /* Subscribe */ = {
-			isa = PBXGroup;
-			children = (
-				4388754C23902E0F00C96614 /* SubscribeViewController.swift */,
-				4388754D23902E0F00C96614 /* SubscribeViewController.xib */,
-			);
-			path = Subscribe;
 			sourceTree = "<group>";
 		};
 		A0AB475BA697D840F2EAEDF2 /* Frameworks */ = {
@@ -257,14 +190,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43887541239028A600C96614 /* PublishViewController.xib in Resources */,
-				43887546239028E200C96614 /* ConfigurationViewController.xib in Resources */,
-				438875512390AEFE00C96614 /* awsiot-identity.p12 in Resources */,
 				4388752A238FFCAE00C96614 /* awsconfiguration.json in Resources */,
 				4340E44A2384D7FF00CE41B1 /* LaunchScreen.storyboard in Resources */,
 				4340E4472384D7FF00CE41B1 /* Assets.xcassets in Resources */,
-				4388754F23902E0F00C96614 /* SubscribeViewController.xib in Resources */,
-				4388752F238FFE7B00C96614 /* MainViewController.xib in Resources */,
 				43887539239027B800C96614 /* ConnectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,11 +251,7 @@
 				4388754923902C8400C96614 /* BaseTabBarController.swift in Sources */,
 				4340E4402384D7FC00CE41B1 /* SceneDelegate.swift in Sources */,
 				43887538239027B800C96614 /* ConnectionViewController.swift in Sources */,
-				43887540239028A600C96614 /* PublishViewController.swift in Sources */,
-				43887545239028E200C96614 /* ConfigurationViewController.swift in Sources */,
-				4388754E23902E0F00C96614 /* SubscribeViewController.swift in Sources */,
 				438875342390274700C96614 /* CustomTabBarController.swift in Sources */,
-				4388752E238FFE7B00C96614 /* MainViewController.swift in Sources */,
 				43887532239001A100C96614 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,8 @@ import AWSMobileClient
 class ConnectionViewController: UIViewController {
     
     @IBOutlet weak var logTextView: UITextView!
-
+    @IBOutlet weak var ledOnOff: UIButton!
+    
     @objc var connected = false;
     @objc var publishViewController : UIViewController!;
     @objc var subscribeViewController : UIViewController!;
@@ -26,6 +27,8 @@ class ConnectionViewController: UIViewController {
     @objc var clientId: String = ""
 //    var payload: Dictionary = [:]
 
+    let updateDelta = "$aws/things/iotService/shadow/update/delta"
+    let update = "$aws/things/iotService/shadow/update"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,54 +51,13 @@ class ConnectionViewController: UIViewController {
         
         self.getAWSClientID(completion: { (nil, error) in })
         
-        let tabBarViewController = tabBarController as! CustomTabBarController
-        publishViewController = tabBarViewController.viewControllers![1]
-        subscribeViewController = tabBarViewController.viewControllers![2]
-        configurationViewController = tabBarViewController.viewControllers![3]
-
-        tabBarViewController.viewControllers = [ self, configurationViewController ]
         self.logTextView.text = self.clientId
         self.connectToAWSIoT(clientId: self.clientId)
         
         
         logTextView.resignFirstResponder()
         self.registerSubscriptions()
-//        print(self.payload)
-        
-//        while true {
-//            self.delayWithSecondsOnUI(1.0, completion: {
-//                print(1)
-//                self.registerSubscriptions()
-//            })
-//        }
-        
-
-//        // Initialize AWSMobileClient for authorization
-//        AWSMobileClient.sharedInstance().initialize { (userState, error) in
-//            guard error == nil else {
-//                print("Failed to initialize AWSMobileClient. Error: \(error!.localizedDescription)")
-//                return
-//            }
-//            print("AWSMobileClient initialized.")
-//        }
-//
-//        // Init IOT
-//        let iotEndPoint = AWSEndpoint(urlString: IOT_ENDPOINT)
-//
-//        // Configuration for AWSIoT control plane APIs
-//        let iotConfiguration = AWSServiceConfiguration(region: .APNortheast2, credentialsProvider: AWSMobileClient.sharedInstance().getCredentialsProvider())
-//
-//        // Configuration for AWSIoT data plane APIs
-//        let iotDataConfiguration = AWSServiceConfiguration(region: .APNortheast2,
-//                                                           endpoint: iotEndPoint,
-//                                                           credentialsProvider: AWSMobileClient.sharedInstance().getCredentialsProvider())
-//        AWSServiceManager.default().defaultServiceConfiguration = iotConfiguration
-//
-//        iotManager = AWSIoTManager.default()
-//        iot = AWSIoT.default()
-//
-//        AWSIoTDataManager.register(with: iotDataConfiguration!, forKey: ASWIoTDataManager)
-//        iotDataManager = AWSIoTDataManager(forKey: ASWIoTDataManager)
+       
     }
     
     func delayWithSecondsOnUI(_ seconds: Double, completion: @escaping () -> ()) {
@@ -140,6 +102,7 @@ class ConnectionViewController: UIViewController {
                 // Register subscriptions here
                 self.registerSubscriptions()
                 // Publish a boot message if required
+                
             case .connectionError: print("AWS IoT connection error")
             case .connectionRefused: print("AWS IoT connection refused")
             case .protocolError: print("AWS IoT protocol error")
@@ -171,12 +134,10 @@ class ConnectionViewController: UIViewController {
             print(1)
             let payloadDictionary = jsonDataToDict(jsonData: payload)
             print("Message received: \(payloadDictionary)")
-//            self.payload = payloadDictionary
             
             // Handle message event here...
+//            self.logTextView.text = "\(payloadDictionary)"
         }
-        
-        let updateDelta = "$aws/things/iotService/shadow/update/delta"
     
 //        let topicArray = ["topicOne", "topicTwo", "topicThree"]
         let topicArray = [updateDelta]
@@ -208,4 +169,8 @@ class ConnectionViewController: UIViewController {
       dataManager.publishString(message, onTopic: topic, qoS: .messageDeliveryAttemptedAtLeastOnce) // Set QoS as needed
     }
 }
-
+extension ConnectionViewController {
+    @objc func ledOnOffFunc(_ sender: UIButton) {
+        
+    }
+}
