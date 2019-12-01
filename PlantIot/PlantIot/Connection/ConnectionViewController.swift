@@ -29,7 +29,8 @@ class ConnectionViewController: UIViewController {
 
     let updateDelta = "$aws/things/iotService/shadow/update/delta"
     let update = "$aws/things/iotService/shadow/update"
-
+    let get = "$aws/things/iotService/shadow/get"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,7 +59,8 @@ class ConnectionViewController: UIViewController {
         
         
         logTextView.resignFirstResponder()
-        self.registerSubscriptions()
+        self.ledOnOff.addTarget(self, action: #selector(self.ledOnOffFunc(_:)), for: .touchUpInside)
+//        self.registerSubscriptions()
        
     }
     
@@ -102,21 +104,8 @@ class ConnectionViewController: UIViewController {
             case .connected:
                 print("Connected to AWS IoT")
                 // Register subscriptions here
-                self.registerSubscriptions()
+                self.registerSubscriptions([get])
                 // Publish a boot message if required
-                
-                //var params = ["state":["reported":["plantLed":"OFF"]]] as [String : Any]
-                var reported = [String:Any]()
-                reported = ["reported" : ["plantLed" : "OFF"]]
-                let entries = ["state": reported]
-                //let param = "state:{reported:{plantLed:ON}}}"
-                do {
-                    let jsonData = try JSONSerialization.data(withJSONObject: entries)
-                    let json = String(data: jsonData, encoding: .utf8)
-                    self.publishMessage(message: jsonData, topic: update)
-                   // self.publishMessage(message: json, topic: update)
-                    print(json!)
-                } catch { print(error) }
                 
             case .connectionError: print("AWS IoT connection error")
             case .connectionRefused: print("AWS IoT connection refused")
@@ -143,10 +132,8 @@ class ConnectionViewController: UIViewController {
         }
     }
     
-    func registerSubscriptions() {
-        print(123)
+    func registerSubscriptions(_ topic: [String]) {
         func messageReceived(payload: Data) {
-            print(1)
             let payloadDictionary = jsonDataToDict(jsonData: payload)
             print("Message received: \(payloadDictionary)")
             
@@ -155,7 +142,7 @@ class ConnectionViewController: UIViewController {
         }
     
 //        let topicArray = ["topicOne", "topicTwo", "topicThree"]
-        let topicArray = [updateDelta]
+        let topicArray = topic
         let dataManager = AWSIoTDataManager(forKey: "kDataManager")
         
         for topic in topicArray {
@@ -182,14 +169,29 @@ class ConnectionViewController: UIViewController {
     func publishMessage(message: Data!, topic: String!) {
       let dataManager = AWSIoTDataManager(forKey: "kDataManager")
         
-        dataManager.publishData(message, onTopic: topic, qoS: .messageDeliveryAttemptedAtLeastOnce)
-      //dataManager.publishString(message, onTopic: topic, qoS: .messageDeliveryAttemptedAtLeastOnce) // Set QoS as needed
+        dataManager.publishData(message, onTopic: topic, qoS: .messageDeliveryAttemptedAtMostOnce)
+//      dataManager.publishString(message, onTopic: topic, qoS: .messageDeliveryAttemptedAtLeastOnce) // Set QoS as needed
         
         print("메세지 퍼블리싱했댱")
     }
 }
 extension ConnectionViewController {
     @objc func ledOnOffFunc(_ sender: UIButton) {
+        self.registerSubscriptions([updateDelta])
+        
+        //var params = ["state":["reported":["plantLed":"OFF"]]] as [String : Any]
+        var reported = [String:Any]()
+        reported = ["reported" : ["plantLed" : "ON"]]
+        let entries = ["state": reported]
+        //let param = "state:{reported:{plantLed:ON}}}"
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: entries)
+            let json = String(data: jsonData, encoding: .utf8)
+//            self.publishMessage(message: "", topic: get)
+            self.publishMessage(message: jsonData, topic: update)
+            print(json!)
+        } catch { print(error) }
+ 
         
         
     }
