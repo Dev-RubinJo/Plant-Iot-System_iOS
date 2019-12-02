@@ -10,10 +10,12 @@ import UIKit
 import AWSIoT
 import AWSMobileClient
 
+
 class ConnectionViewController: UIViewController {
     
     @IBOutlet weak var logTextView: UITextView!
     @IBOutlet weak var ledOnOff: UIButton!
+    //var ledstate = "ON"
     
     @objc var connected = false;
     @objc var publishViewController : UIViewController!;
@@ -59,6 +61,8 @@ class ConnectionViewController: UIViewController {
         
         
         logTextView.resignFirstResponder()
+        self.ledOnOff.tag = 0 //off
+    
         self.ledOnOff.addTarget(self, action: #selector(self.ledOnOffFunc(_:)), for: .touchUpInside)
 //        self.registerSubscriptions()
        
@@ -178,10 +182,18 @@ class ConnectionViewController: UIViewController {
 extension ConnectionViewController {
     @objc func ledOnOffFunc(_ sender: UIButton) {
         self.registerSubscriptions([updateDelta])
-        
+        var buttonState : String = ""
         //var params = ["state":["reported":["plantLed":"OFF"]]] as [String : Any]
+        if sender.tag == 0{//off
+            sender.tag = 1
+            buttonState = "ON"
+        }else if(sender.tag == 1){//on
+            sender.tag = 0
+            buttonState = "OFF"
+        }
+        
         var reported = [String:Any]()
-        reported = ["reported" : ["plantLed" : "ON"]]
+        reported = ["reported" : ["plantLed" : "\(buttonState)"]]
         let entries = ["state": reported]
         //let param = "state:{reported:{plantLed:ON}}}"
         do {

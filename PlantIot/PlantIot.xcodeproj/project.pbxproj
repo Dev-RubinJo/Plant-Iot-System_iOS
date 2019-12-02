@@ -18,6 +18,10 @@
 		43887539239027B800C96614 /* ConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43887537239027B800C96614 /* ConnectionViewController.xib */; };
 		4388753C239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388753B239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift */; };
 		4388754923902C8400C96614 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388754823902C8400C96614 /* BaseTabBarController.swift */; };
+		4A4045F62394AD930036D81B /* ConnectDynamoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */; };
+		4A4045F72394AD930036D81B /* ConnectDynamoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4045F52394AD930036D81B /* ConnectDynamoViewController.xib */; };
+		4A4045FB2394E5910036D81B /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045FA2394E5900036D81B /* Example.swift */; };
+		4A4045FD239567F70036D81B /* HumidDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045FC239567F70036D81B /* HumidDb.swift */; };
 		63C5260BCF85D25B4758461E /* Pods_PlantIot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C13E27D94E906337E2B946 /* Pods_PlantIot.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +40,10 @@
 		43887537239027B800C96614 /* ConnectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectionViewController.xib; sourceTree = "<group>"; };
 		4388753B239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionViewController+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		4388754823902C8400C96614 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDynamoViewController.swift; sourceTree = "<group>"; };
+		4A4045F52394AD930036D81B /* ConnectDynamoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectDynamoViewController.xib; sourceTree = "<group>"; };
+		4A4045FA2394E5900036D81B /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		4A4045FC239567F70036D81B /* HumidDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidDb.swift; sourceTree = "<group>"; };
 		8B3CA416075516F79DC9F6C6 /* Pods-PlantIot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.release.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.release.xcconfig"; sourceTree = "<group>"; };
 		94CF3BED0379354907F8A09D /* Pods-PlantIot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.debug.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +93,7 @@
 				438875302390018D00C96614 /* Config */,
 				438875352390279100C96614 /* Connection */,
 				4340E43D2384D7FC00CE41B1 /* AppDelegate.swift */,
+				4A4045FA2394E5900036D81B /* Example.swift */,
 				4340E43F2384D7FC00CE41B1 /* SceneDelegate.swift */,
 				4340E4462384D7FF00CE41B1 /* Assets.xcassets */,
 				4340E4482384D7FF00CE41B1 /* LaunchScreen.storyboard */,
@@ -110,6 +119,9 @@
 				4388753A239027D800C96614 /* extension */,
 				43887536239027B800C96614 /* ConnectionViewController.swift */,
 				43887537239027B800C96614 /* ConnectionViewController.xib */,
+				4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */,
+				4A4045F52394AD930036D81B /* ConnectDynamoViewController.xib */,
+				4A4045FC239567F70036D81B /* HumidDb.swift */,
 			);
 			path = Connection;
 			sourceTree = "<group>";
@@ -193,6 +205,7 @@
 				4388752A238FFCAE00C96614 /* awsconfiguration.json in Resources */,
 				4340E44A2384D7FF00CE41B1 /* LaunchScreen.storyboard in Resources */,
 				4340E4472384D7FF00CE41B1 /* Assets.xcassets in Resources */,
+				4A4045F72394AD930036D81B /* ConnectDynamoViewController.xib in Resources */,
 				43887539239027B800C96614 /* ConnectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,12 +260,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4340E43E2384D7FC00CE41B1 /* AppDelegate.swift in Sources */,
+				4A4045FD239567F70036D81B /* HumidDb.swift in Sources */,
 				4388753C239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift in Sources */,
 				4388754923902C8400C96614 /* BaseTabBarController.swift in Sources */,
 				4340E4402384D7FC00CE41B1 /* SceneDelegate.swift in Sources */,
+				4A4045FB2394E5910036D81B /* Example.swift in Sources */,
 				43887538239027B800C96614 /* ConnectionViewController.swift in Sources */,
 				438875342390274700C96614 /* CustomTabBarController.swift in Sources */,
 				43887532239001A100C96614 /* Constants.swift in Sources */,
+				4A4045F62394AD930036D81B /* ConnectDynamoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

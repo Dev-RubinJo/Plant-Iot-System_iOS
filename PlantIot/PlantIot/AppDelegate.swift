@@ -14,17 +14,28 @@ import AWSCore
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    var isinitialized = false
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
         AWSDDLog.sharedInstance.logLevel = .info
         
-        return AWSMobileClient.sharedInstance().interceptApplication(
-                                                application,
-                                                didFinishLaunchingWithOptions: launchOptions)
+        let didFinishLaunching = AWSMobileClient.sharedInstance().interceptApplication(
+            application,
+            didFinishLaunchingWithOptions: launchOptions)
+        if(!isinitialized){
+            AWSSignInManager.sharedInstance().resumeSession(completionHandler:{
+                (result: Any?, error: Error?) in
+                //print("Result: \(result) \n Error:\(error)")
+            })
+                isinitialized = true
+        }
+        return didFinishLaunching
     }
+    
+
 
     // MARK: UISceneSession Lifecycle
 

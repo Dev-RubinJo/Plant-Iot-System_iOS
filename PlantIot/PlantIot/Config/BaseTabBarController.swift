@@ -15,9 +15,10 @@ class BaseTabBarController: CustomTabBarController {
         super.viewDidLoad()
         
         let connectionVC = ConnectionViewController()
+        let connectionDBVC = ConnectDynamoViewController()
         connectionVC.tabBarItem = UITabBarItem(title: "connection", image: nil, tag: 0)
-        
-        let tabBarList = [connectionVC]
+        connectionDBVC.tabBarItem = UITabBarItem(title: "db", image: nil, tag: 1)
+        let tabBarList = [connectionVC, connectionDBVC]
         viewControllers = tabBarList
     }
     
