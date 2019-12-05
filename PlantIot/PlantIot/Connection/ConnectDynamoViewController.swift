@@ -20,9 +20,23 @@ class ConnectDynamoViewController: UIViewController {
     
     var soilarr = [[Int]]()
     var temparr : [String] = []
+    
+    //on,off 버튼
+    @IBOutlet weak var OnoffBtn: UIButton!
+    //상태정보 view Box
+    @IBOutlet weak var StatusBox: UIView!
+    
+    
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    //on,off버튼 잎 모양
+    OnoffBtn.layer.cornerRadius = 0.5 * OnoffBtn.bounds.size.width
+    //상태정보 테두리 둥글게
+    StatusBox.layer.cornerRadius = 10
+        
+    
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .APNortheast2, identityPoolId: "ap-northeast-2:dbf2e92e-a032-4b12-b28c-e74e378af20f")
         
         let configuration = AWSServiceConfiguration(region:.APNortheast2, credentialsProvider:credentialsProvider)
