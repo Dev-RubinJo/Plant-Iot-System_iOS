@@ -11,6 +11,7 @@
 		4340E4402384D7FC00CE41B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4340E43F2384D7FC00CE41B1 /* SceneDelegate.swift */; };
 		4340E4472384D7FF00CE41B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4340E4462384D7FF00CE41B1 /* Assets.xcassets */; };
 		4340E44A2384D7FF00CE41B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4340E4482384D7FF00CE41B1 /* LaunchScreen.storyboard */; };
+		43839B50239E53BF00AE245D /* ConnectDynamoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43839B4F239E53BE00AE245D /* ConnectDynamoViewController.xib */; };
 		4388752A238FFCAE00C96614 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43887529238FFCAE00C96614 /* awsconfiguration.json */; };
 		43887532239001A100C96614 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43887531239001A100C96614 /* Constants.swift */; };
 		438875342390274700C96614 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438875332390274700C96614 /* CustomTabBarController.swift */; };
@@ -22,7 +23,6 @@
 		4A1D1A4823980529001BA774 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D1A4623980529001BA774 /* CreateUserViewController.swift */; };
 		4A1D1A4923980529001BA774 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1D1A4723980529001BA774 /* CreateUserViewController.xib */; };
 		4A4045F62394AD930036D81B /* ConnectDynamoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */; };
-		4A4045F72394AD930036D81B /* ConnectDynamoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4045F52394AD930036D81B /* ConnectDynamoViewController.xib */; };
 		4A4045FB2394E5910036D81B /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045FA2394E5900036D81B /* Example.swift */; };
 		4A4045FD239567F70036D81B /* HumidDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045FC239567F70036D81B /* HumidDb.swift */; };
 		63C5260BCF85D25B4758461E /* Pods_PlantIot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C13E27D94E906337E2B946 /* Pods_PlantIot.framework */; };
@@ -36,6 +36,7 @@
 		4340E4462384D7FF00CE41B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4340E4492384D7FF00CE41B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4340E44B2384D7FF00CE41B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43839B4F239E53BE00AE245D /* ConnectDynamoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectDynamoViewController.xib; sourceTree = "<group>"; };
 		43887529238FFCAE00C96614 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		43887531239001A100C96614 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		438875332390274700C96614 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 		4A1D1A4623980529001BA774 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		4A1D1A4723980529001BA774 /* CreateUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
 		4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDynamoViewController.swift; sourceTree = "<group>"; };
-		4A4045F52394AD930036D81B /* ConnectDynamoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectDynamoViewController.xib; sourceTree = "<group>"; };
 		4A4045FA2394E5900036D81B /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		4A4045FC239567F70036D81B /* HumidDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidDb.swift; sourceTree = "<group>"; };
 		8B3CA416075516F79DC9F6C6 /* Pods-PlantIot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.release.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 				43887536239027B800C96614 /* ConnectionViewController.swift */,
 				43887537239027B800C96614 /* ConnectionViewController.xib */,
 				4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */,
-				4A4045F52394AD930036D81B /* ConnectDynamoViewController.xib */,
+				43839B4F239E53BE00AE245D /* ConnectDynamoViewController.xib */,
 				4A1D1A4623980529001BA774 /* CreateUserViewController.swift */,
 				4A1D1A4723980529001BA774 /* CreateUserViewController.xib */,
 			);
@@ -215,8 +215,8 @@
 				4A1D1A4923980529001BA774 /* CreateUserViewController.xib in Resources */,
 				4340E44A2384D7FF00CE41B1 /* LaunchScreen.storyboard in Resources */,
 				4340E4472384D7FF00CE41B1 /* Assets.xcassets in Resources */,
-				4A4045F72394AD930036D81B /* ConnectDynamoViewController.xib in Resources */,
 				43887539239027B800C96614 /* ConnectionViewController.xib in Resources */,
+				43839B50239E53BF00AE245D /* ConnectDynamoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

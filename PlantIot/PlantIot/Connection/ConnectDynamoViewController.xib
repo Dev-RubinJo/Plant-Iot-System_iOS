@@ -55,22 +55,13 @@
                     <rect key="frame" x="32.666666666666657" y="158" width="310" height="400"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soil Humidity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzg-WF-bf4">
-<<<<<<< HEAD
-                            <rect key="frame" x="101.66666666666666" y="236" width="107" height="24"/>
-=======
                             <rect key="frame" x="101.33333333333334" y="233" width="107" height="24"/>
->>>>>>> 373b765b88d14130ad9ef131cece4304a85a3e87
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-<<<<<<< HEAD
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-5C'" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G78-Kt-ef9">
-                            <rect key="frame" x="139" y="130.66666666666669" width="32" height="20"/>
-=======
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-5Cº" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G78-Kt-ef9">
                             <rect key="frame" x="138" y="122.66666666666669" width="34" height="20"/>
->>>>>>> 373b765b88d14130ad9ef131cece4304a85a3e87
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -87,11 +78,7 @@
                             </state>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDA-wD-56D">
-<<<<<<< HEAD
-                            <rect key="frame" x="140.66666666666666" y="206.66666666666669" width="32.666666666666657" height="19.333333333333343"/>
-=======
                             <rect key="frame" x="141" y="203.66666666666669" width="32" height="19.333333333333343"/>
->>>>>>> 373b765b88d14130ad9ef131cece4304a85a3e87
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -103,31 +90,19 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49O-ai-UW2">
-<<<<<<< HEAD
-                            <rect key="frame" x="102.66666666666666" y="99.666666666666657" width="104.66666666666666" height="24"/>
-=======
                             <rect key="frame" x="102.66666666666669" y="94.666666666666657" width="104.66666666666669" height="24"/>
->>>>>>> 373b765b88d14130ad9ef131cece4304a85a3e87
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Air Humidity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izt-KZ-Cu3">
-<<<<<<< HEAD
-                            <rect key="frame" x="105.66666666666666" y="175.66666666666669" width="99" height="24"/>
-=======
                             <rect key="frame" x="105.33333333333334" y="172.66666666666669" width="99" height="24"/>
->>>>>>> 373b765b88d14130ad9ef131cece4304a85a3e87
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="67%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGp-rF-HvF">
-<<<<<<< HEAD
-                            <rect key="frame" x="139.33333333333334" y="267" width="31.666666666666657" height="19.333333333333314"/>
-=======
                             <rect key="frame" x="139" y="264" width="31.666666666666657" height="19.333333333333314"/>
->>>>>>> 373b765b88d14130ad9ef131cece4304a85a3e87
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -142,13 +117,13 @@
                         <constraint firstItem="Ej3-sd-gLT" firstAttribute="top" secondItem="NSN-sh-2gA" secondAttribute="top" constant="35" id="Hhi-H7-bdM"/>
                         <constraint firstItem="izt-KZ-Cu3" firstAttribute="centerX" secondItem="NSN-sh-2gA" secondAttribute="centerX" id="KNa-54-4db"/>
                         <constraint firstAttribute="width" constant="310" id="aMl-KZ-iQw"/>
-                        <constraint firstItem="49O-ai-UW2" firstAttribute="top" secondItem="Ej3-sd-gLT" secondAttribute="bottom" constant="30" id="bjT-zU-qQr"/>
+                        <constraint firstItem="49O-ai-UW2" firstAttribute="top" secondItem="Ej3-sd-gLT" secondAttribute="bottom" constant="25" id="bjT-zU-qQr"/>
                         <constraint firstItem="dzg-WF-bf4" firstAttribute="top" secondItem="oDA-wD-56D" secondAttribute="bottom" constant="10" id="cbU-1R-ay1"/>
                         <constraint firstAttribute="bottom" secondItem="nUh-f0-mGF" secondAttribute="bottom" constant="17" id="dlB-W9-j4b"/>
                         <constraint firstItem="oDA-wD-56D" firstAttribute="top" secondItem="izt-KZ-Cu3" secondAttribute="bottom" constant="7" id="feh-9w-5SO"/>
                         <constraint firstItem="UGp-rF-HvF" firstAttribute="centerX" secondItem="NSN-sh-2gA" secondAttribute="centerX" id="frc-OD-yNC"/>
-                        <constraint firstItem="G78-Kt-ef9" firstAttribute="top" secondItem="49O-ai-UW2" secondAttribute="bottom" constant="7" id="g5o-CY-I5z"/>
-                        <constraint firstItem="izt-KZ-Cu3" firstAttribute="top" secondItem="G78-Kt-ef9" secondAttribute="bottom" constant="25" id="heu-n3-pQo"/>
+                        <constraint firstItem="G78-Kt-ef9" firstAttribute="top" secondItem="49O-ai-UW2" secondAttribute="bottom" constant="4" id="g5o-CY-I5z"/>
+                        <constraint firstItem="izt-KZ-Cu3" firstAttribute="top" secondItem="G78-Kt-ef9" secondAttribute="bottom" constant="30" id="heu-n3-pQo"/>
                         <constraint firstItem="oDA-wD-56D" firstAttribute="centerX" secondItem="NSN-sh-2gA" secondAttribute="centerX" constant="2" id="jBn-UP-MAM"/>
                         <constraint firstItem="nUh-f0-mGF" firstAttribute="centerX" secondItem="NSN-sh-2gA" secondAttribute="centerX" id="rF1-YY-EfY"/>
                         <constraint firstItem="G78-Kt-ef9" firstAttribute="centerX" secondItem="NSN-sh-2gA" secondAttribute="centerX" id="x8W-qS-PDf"/>
