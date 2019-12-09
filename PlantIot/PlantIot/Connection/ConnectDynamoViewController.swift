@@ -26,16 +26,14 @@ class ConnectDynamoViewController: UIViewController {
     //상태정보 view Box
     @IBOutlet weak var StatusBox: UIView!
     
-    
-    @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    //on,off버튼 잎 모양
-    OnoffBtn.layer.cornerRadius = 0.5 * OnoffBtn.bounds.size.width
-    //상태정보 테두리 둥글게
-    StatusBox.layer.cornerRadius = 10
-        
+        //on,off버튼 잎 모양
+        OnoffBtn.layer.cornerRadius = 0.5 * OnoffBtn.bounds.size.width
+        //상태정보 테두리 둥글게
+        StatusBox.layer.cornerRadius = 10
+            
     
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .APNortheast2, identityPoolId: "ap-northeast-2:dbf2e92e-a032-4b12-b28c-e74e378af20f")
         
@@ -58,29 +56,30 @@ class ConnectDynamoViewController: UIViewController {
     }
     
     let deviceId : String = (UIDevice.current.identifierForVendor?.uuidString)!
-    func postToDB() {
-        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
-        let newScore : Int = 222222222
-        //let objectMapper = AWSDynamoDBObjectMapper.default()
-        //let itemToCreate : Example = Example()
-        let va = 20
-        //let itemToCreate : Soil = Soil()
-        let itemToCreate : Temp = Temp()
-        //itemToCreate._soilhumid = String(va)
-        itemToCreate._temp = "22"
-        itemToCreate._index = NSNumber(value: newScore)
-        print(itemToCreate)
-        dynamoDbObjectMapper.save(itemToCreate, completionHandler: {
-            (error: Error?) -> Void in
-            
-            if let error = error {
-                print("Amazon DynamoDB Save Error: \(error)")
-                return
-            }
-            print("An item was saved.")
-        })
-        // readDb()
-    }
+    
+                //    func postToDB() {
+                //        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+                //        let newScore : Int = 222222222
+                //        //let objectMapper = AWSDynamoDBObjectMapper.default()
+                //        //let itemToCreate : Example = Example()
+                //        let va = 20
+                //        //let itemToCreate : Soil = Soil()
+                //        let itemToCreate : Temp = Temp()
+                //        //itemToCreate._soilhumid = String(va)
+                //        itemToCreate._temp = "22"
+                //        itemToCreate._index = NSNumber(value: newScore)
+                //        print(itemToCreate)
+                //        dynamoDbObjectMapper.save(itemToCreate, completionHandler: {
+                //            (error: Error?) -> Void in
+                //            
+                //            if let error = error {
+                //                print("Amazon DynamoDB Save Error: \(error)")
+                //                return
+                //            }
+                //            print("An item was saved.")
+                //        })
+                //        // readDb()
+                //    }
     
     func readDb() {
         let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
