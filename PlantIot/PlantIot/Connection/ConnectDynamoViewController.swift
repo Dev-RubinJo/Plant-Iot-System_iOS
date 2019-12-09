@@ -14,7 +14,8 @@ import AWSAuthCore
 
 class ConnectDynamoViewController: UIViewController {
     
-    
+    // MARK: TODO:: 변수들 뒤에 어떤 변수인지 주석 달아두기
+    // 그러면 내가 변수 네이밍 리펙토링 할께
     var humidarr : [Humid] = []
     var arr = [[Int]]()
     
@@ -51,6 +52,7 @@ class ConnectDynamoViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         //postToDB()
         //createBooks()
     }
@@ -80,7 +82,7 @@ class ConnectDynamoViewController: UIViewController {
                 //        })
                 //        // readDb()
                 //    }
-    
+    // 테이블 마다 있는게 좋을꺼같은데 어떻게할까?
     func readDb() {
         let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
         
@@ -100,6 +102,7 @@ class ConnectDynamoViewController: UIViewController {
                 
                 print(self.arr)
             }
+            // MARK: TODO:: 하단에 테이블 별로 지우는 함수 만든거 각 테이블에 맞게 넣어두기
             self.removeDb()
             return nil
         })
@@ -117,16 +120,18 @@ class ConnectDynamoViewController: UIViewController {
                 
                 print(self.soilarr)
             }
+            // TODO:: 하단에 테이블 별로 지우는 함수 만든거 각 테이블에 맞게 넣어두기
             self.removeDb()
             return nil
         })
     }
-    
+    // MARK: TODO:: 각 테이블 별로 remove 혹은 delete함수 생성하기
+    // ex) deleteAirHumidTableData, deleteSoilHumidTableData, etc.
     func removeDb(){
         let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
         let humidToDelete = Humid()
         let soilToDelete = Soil()
-        for i in 0 ... soilarr.count - 2{
+        for i in 0 ... soilarr.count - 2 {
             soilToDelete?._soilhumid = String(soilarr[i][1]);
             soilToDelete?._index = NSNumber(value: soilarr[i][0]);
             dynamoDbObjectMapper.remove(soilToDelete!).continueWith(block: { (task:AWSTask!) -> AnyObject? in
