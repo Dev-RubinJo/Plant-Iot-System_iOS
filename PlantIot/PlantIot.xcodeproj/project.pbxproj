@@ -16,7 +16,6 @@
 		438875342390274700C96614 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438875332390274700C96614 /* CustomTabBarController.swift */; };
 		43887538239027B800C96614 /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43887536239027B800C96614 /* ConnectionViewController.swift */; };
 		43887539239027B800C96614 /* ConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43887537239027B800C96614 /* ConnectionViewController.xib */; };
-		4388753C239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388753B239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift */; };
 		4388754923902C8400C96614 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388754823902C8400C96614 /* BaseTabBarController.swift */; };
 		4A1D1A432397FAC2001BA774 /* SoilDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D1A422397FAC2001BA774 /* SoilDb.swift */; };
 		4A1D1A452397FB09001BA774 /* TemperatureDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D1A442397FB09001BA774 /* TemperatureDb.swift */; };
@@ -42,7 +41,6 @@
 		438875332390274700C96614 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		43887536239027B800C96614 /* ConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
 		43887537239027B800C96614 /* ConnectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectionViewController.xib; sourceTree = "<group>"; };
-		4388753B239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectionViewController+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		4388754823902C8400C96614 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		4A1D1A422397FAC2001BA774 /* SoilDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilDb.swift; sourceTree = "<group>"; };
 		4A1D1A442397FB09001BA774 /* TemperatureDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureDb.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				4A1D1A412397FAA0001BA774 /* DBmapper */,
-				4388753A239027D800C96614 /* extension */,
 				43887536239027B800C96614 /* ConnectionViewController.swift */,
 				43887537239027B800C96614 /* ConnectionViewController.xib */,
 				4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */,
@@ -133,14 +130,6 @@
 				4A1D1A4723980529001BA774 /* CreateUserViewController.xib */,
 			);
 			path = Connection;
-			sourceTree = "<group>";
-		};
-		4388753A239027D800C96614 /* extension */ = {
-			isa = PBXGroup;
-			children = (
-				4388753B239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift */,
-			);
-			path = extension;
 			sourceTree = "<group>";
 		};
 		4A1D1A412397FAA0001BA774 /* DBmapper */ = {
@@ -282,7 +271,6 @@
 			files = (
 				4340E43E2384D7FC00CE41B1 /* AppDelegate.swift in Sources */,
 				4A4045FD239567F70036D81B /* HumidDb.swift in Sources */,
-				4388753C239027F500C96614 /* ConnectionViewController+UITextViewDelegate.swift in Sources */,
 				4388754923902C8400C96614 /* BaseTabBarController.swift in Sources */,
 				4340E4402384D7FC00CE41B1 /* SceneDelegate.swift in Sources */,
 				4A4045FB2394E5910036D81B /* Example.swift in Sources */,
@@ -430,7 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A98H9QQQ34;
+				DEVELOPMENT_TEAM = 6M94RM5DH9;
 				INFOPLIST_FILE = PlantIot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,7 +438,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A98H9QQQ34;
+				DEVELOPMENT_TEAM = 6M94RM5DH9;
 				INFOPLIST_FILE = PlantIot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
