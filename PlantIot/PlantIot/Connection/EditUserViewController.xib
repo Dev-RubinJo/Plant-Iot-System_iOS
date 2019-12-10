@@ -103,7 +103,7 @@
                                 <constraint firstAttribute="width" constant="180" id="tLR-6C-7CE"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
-                            <state key="normal" title="시작하기">
+                            <state key="normal" title="저장하기">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
