@@ -13,6 +13,8 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource
     var selectrow = 0
     private let values: [String] = ["다육이","관엽식물","허브","덩굴식물","꽃"]
     
+    @IBOutlet weak var viewBox: UIView!
+    
     @IBOutlet weak var specLbl: UILabel!{
         didSet{
             specLbl.text = ""
@@ -62,6 +64,10 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        //시작하기 버튼 UI
+        pushBtn.layer.cornerRadius = 10
+        //뷰 박스 UI
+        viewBox.layer.cornerRadius = 10
         pickerview.isHidden = true
         pickerview.delegate = self
         pickerview.dataSource = self
