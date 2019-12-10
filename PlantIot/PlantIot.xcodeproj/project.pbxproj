@@ -25,6 +25,7 @@
 		4A4045F62394AD930036D81B /* ConnectDynamoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */; };
 		4A4045FB2394E5910036D81B /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045FA2394E5900036D81B /* Example.swift */; };
 		4A4045FD239567F70036D81B /* HumidDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045FC239567F70036D81B /* HumidDb.swift */; };
+		4A585CC8239F49F600190086 /* CDSDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A585CC7239F49F600190086 /* CDSDb.swift */; };
 		63C5260BCF85D25B4758461E /* Pods_PlantIot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C13E27D94E906337E2B946 /* Pods_PlantIot.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDynamoViewController.swift; sourceTree = "<group>"; };
 		4A4045FA2394E5900036D81B /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		4A4045FC239567F70036D81B /* HumidDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidDb.swift; sourceTree = "<group>"; };
+		4A585CC7239F49F600190086 /* CDSDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDSDb.swift; sourceTree = "<group>"; };
 		8B3CA416075516F79DC9F6C6 /* Pods-PlantIot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.release.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.release.xcconfig"; sourceTree = "<group>"; };
 		94CF3BED0379354907F8A09D /* Pods-PlantIot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.debug.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 				4A4045FC239567F70036D81B /* HumidDb.swift */,
 				4A1D1A422397FAC2001BA774 /* SoilDb.swift */,
 				4A1D1A442397FB09001BA774 /* TemperatureDb.swift */,
+				4A585CC7239F49F600190086 /* CDSDb.swift */,
 			);
 			path = DBmapper;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				4A1D1A4823980529001BA774 /* CreateUserViewController.swift in Sources */,
 				4A1D1A452397FB09001BA774 /* TemperatureDb.swift in Sources */,
 				43887538239027B800C96614 /* ConnectionViewController.swift in Sources */,
+				4A585CC8239F49F600190086 /* CDSDb.swift in Sources */,
 				438875342390274700C96614 /* CustomTabBarController.swift in Sources */,
 				43887532239001A100C96614 /* Constants.swift in Sources */,
 				4A4045F62394AD930036D81B /* ConnectDynamoViewController.swift in Sources */,

@@ -11,6 +11,12 @@
             <connections>
                 <outlet property="OnoffBtn" destination="nUh-f0-mGF" id="TEW-Yo-26p"/>
                 <outlet property="StatusBox" destination="NSN-sh-2gA" id="wvn-r8-gsb"/>
+                <outlet property="airhumidityLbl" destination="oDA-wD-56D" id="c59-PF-2lj"/>
+                <outlet property="houseLbl" destination="Ej3-sd-gLT" id="h5H-FN-BEC"/>
+                <outlet property="nameLbl" destination="KPI-Hx-wDl" id="wJz-ty-D71"/>
+                <outlet property="recommendLbl" destination="P51-W1-Els" id="Aql-fO-wbo"/>
+                <outlet property="soilhumidityLbl" destination="UGp-rF-HvF" id="oMk-qV-3No"/>
+                <outlet property="tempLbl" destination="G78-Kt-ef9" id="RfX-Xb-8i0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -60,7 +66,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-5Cº" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G78-Kt-ef9">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-5ºC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G78-Kt-ef9">
                             <rect key="frame" x="138" y="122.66666666666669" width="34" height="20"/>
                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                             <nil key="textColor"/>
@@ -107,9 +113,16 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="화분이 잘 자라고 있어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P51-W1-Els">
+                            <rect key="frame" x="74" y="293.33333333333331" width="166" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="P51-W1-Els" firstAttribute="centerX" secondItem="NSN-sh-2gA" secondAttribute="centerX" constant="2" id="6db-yz-Efa"/>
                         <constraint firstItem="Ej3-sd-gLT" firstAttribute="centerX" secondItem="NSN-sh-2gA" secondAttribute="centerX" constant="7" id="AjE-jH-KIb"/>
                         <constraint firstItem="UGp-rF-HvF" firstAttribute="top" secondItem="dzg-WF-bf4" secondAttribute="bottom" constant="7" id="Dah-s7-3zH"/>
                         <constraint firstItem="49O-ai-UW2" firstAttribute="centerX" secondItem="NSN-sh-2gA" secondAttribute="centerX" id="GBN-ar-ffx"/>
@@ -120,6 +133,7 @@
                         <constraint firstItem="49O-ai-UW2" firstAttribute="top" secondItem="Ej3-sd-gLT" secondAttribute="bottom" constant="25" id="bjT-zU-qQr"/>
                         <constraint firstItem="dzg-WF-bf4" firstAttribute="top" secondItem="oDA-wD-56D" secondAttribute="bottom" constant="10" id="cbU-1R-ay1"/>
                         <constraint firstAttribute="bottom" secondItem="nUh-f0-mGF" secondAttribute="bottom" constant="17" id="dlB-W9-j4b"/>
+                        <constraint firstItem="P51-W1-Els" firstAttribute="top" secondItem="UGp-rF-HvF" secondAttribute="bottom" constant="10" id="edS-bw-80t"/>
                         <constraint firstItem="oDA-wD-56D" firstAttribute="top" secondItem="izt-KZ-Cu3" secondAttribute="bottom" constant="7" id="feh-9w-5SO"/>
                         <constraint firstItem="UGp-rF-HvF" firstAttribute="centerX" secondItem="NSN-sh-2gA" secondAttribute="centerX" id="frc-OD-yNC"/>
                         <constraint firstItem="G78-Kt-ef9" firstAttribute="top" secondItem="49O-ai-UW2" secondAttribute="bottom" constant="4" id="g5o-CY-I5z"/>
@@ -130,13 +144,6 @@
                         <constraint firstItem="dzg-WF-bf4" firstAttribute="centerX" secondItem="NSN-sh-2gA" secondAttribute="centerX" id="yUc-xP-9aA"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="화분이 잘 자라고 있어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P51-W1-Els">
-                    <rect key="frame" x="124" y="609" width="166" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
