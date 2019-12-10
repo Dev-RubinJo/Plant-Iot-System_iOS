@@ -25,6 +25,8 @@
 		4A4045F62394AD930036D81B /* ConnectDynamoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */; };
 		4A4045FB2394E5910036D81B /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045FA2394E5900036D81B /* Example.swift */; };
 		4A4045FD239567F70036D81B /* HumidDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045FC239567F70036D81B /* HumidDb.swift */; };
+		4A50D778239F7887007BDEB5 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50D776239F7887007BDEB5 /* EditUserViewController.swift */; };
+		4A50D779239F7887007BDEB5 /* EditUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A50D777239F7887007BDEB5 /* EditUserViewController.xib */; };
 		4A585CC8239F49F600190086 /* CDSDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A585CC7239F49F600190086 /* CDSDb.swift */; };
 		63C5260BCF85D25B4758461E /* Pods_PlantIot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C13E27D94E906337E2B946 /* Pods_PlantIot.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,8 @@
 		4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDynamoViewController.swift; sourceTree = "<group>"; };
 		4A4045FA2394E5900036D81B /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		4A4045FC239567F70036D81B /* HumidDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidDb.swift; sourceTree = "<group>"; };
+		4A50D776239F7887007BDEB5 /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
+		4A50D777239F7887007BDEB5 /* EditUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUserViewController.xib; sourceTree = "<group>"; };
 		4A585CC7239F49F600190086 /* CDSDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDSDb.swift; sourceTree = "<group>"; };
 		8B3CA416075516F79DC9F6C6 /* Pods-PlantIot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.release.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.release.xcconfig"; sourceTree = "<group>"; };
 		94CF3BED0379354907F8A09D /* Pods-PlantIot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlantIot.debug.xcconfig"; path = "Target Support Files/Pods-PlantIot/Pods-PlantIot.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				43839B4F239E53BE00AE245D /* ConnectDynamoViewController.xib */,
 				4A1D1A4623980529001BA774 /* CreateUserViewController.swift */,
 				4A1D1A4723980529001BA774 /* CreateUserViewController.xib */,
+				4A50D776239F7887007BDEB5 /* EditUserViewController.swift */,
+				4A50D777239F7887007BDEB5 /* EditUserViewController.xib */,
 			);
 			path = Connection;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A50D779239F7887007BDEB5 /* EditUserViewController.xib in Resources */,
 				4388752A238FFCAE00C96614 /* awsconfiguration.json in Resources */,
 				4A1D1A4923980529001BA774 /* CreateUserViewController.xib in Resources */,
 				4340E44A2384D7FF00CE41B1 /* LaunchScreen.storyboard in Resources */,
@@ -277,6 +284,7 @@
 				4388754923902C8400C96614 /* BaseTabBarController.swift in Sources */,
 				4340E4402384D7FC00CE41B1 /* SceneDelegate.swift in Sources */,
 				4A4045FB2394E5910036D81B /* Example.swift in Sources */,
+				4A50D778239F7887007BDEB5 /* EditUserViewController.swift in Sources */,
 				4A1D1A4823980529001BA774 /* CreateUserViewController.swift in Sources */,
 				4A1D1A452397FB09001BA774 /* TemperatureDb.swift in Sources */,
 				43887538239027B800C96614 /* ConnectionViewController.swift in Sources */,

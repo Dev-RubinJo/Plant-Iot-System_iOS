@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import AWSDynamoDB
+import AWSCore
 
 class Temp: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     

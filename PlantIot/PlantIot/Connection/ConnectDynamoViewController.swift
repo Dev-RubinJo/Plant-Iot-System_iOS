@@ -1,3 +1,4 @@
+
 //
 //  ConnectDynamoViewController.swift
 //  PlantIot
@@ -28,6 +29,11 @@ class ConnectDynamoViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var editBtn: UIButton!
+    @IBAction func pusheditBtn(_ sender: Any) {
+         self.navigationController!.pushViewController(EditUserViewController(), animated: true)
+    }
+    
     @IBOutlet weak var houseLbl: UILabel!{//두 번째 이름넣기
         didSet{
             houseLbl.text = name! + "'s House :)"
@@ -50,7 +56,6 @@ class ConnectDynamoViewController: UIViewController {
         OnoffBtn.layer.cornerRadius = 0.5 * OnoffBtn.bounds.size.width
         //상태정보 테두리 둥글게
         StatusBox.layer.cornerRadius = 10
-            
         //cognito unauth로 연결하기
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .APNortheast2, identityPoolId: "ap-northeast-2:dbf2e92e-a032-4b12-b28c-e74e378af20f")
         
@@ -75,29 +80,46 @@ class ConnectDynamoViewController: UIViewController {
     
 
     //dynamodb에 값 넣는 함수
-                //    func postToDB() {
-                //        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
-                //        let newScore : Int = 222222222
-                //        //let objectMapper = AWSDynamoDBObjectMapper.default()
-                //        //let itemToCreate : Example = Example()
-                //        let va = 20
-                //        //let itemToCreate : Soil = Soil()
-                //        let itemToCreate : Temp = Temp()
-                //        //itemToCreate._soilhumid = String(va)
-                //        itemToCreate._temp = "22"
-                //        itemToCreate._index = NSNumber(value: newScore)
-                //        print(itemToCreate)
-                //        dynamoDbObjectMapper.save(itemToCreate, completionHandler: {
-                //            (error: Error?) -> Void in
-                //            
-                //            if let error = error {
-                //                print("Amazon DynamoDB Save Error: \(error)")
-                //                return
-                //            }
-                //            print("An item was saved.")
-                //        })
-                //        // readDb()
-                //    }
+                    func postToDB() {
+                        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+                        let newScore : Int = 222222221
+                        //let objectMapper = AWSDynamoDBObjectMapper.default()
+                        //let itemToCreate : Example = Example()
+                        let va = 23
+                        //let itemToCreate : Soil = Soil()
+                        let itemToCreate : Example = Example()
+                        //itemToCreate._soilhumid = String(va)
+                        itemToCreate._userId = String(va)
+                        itemToCreate._highScore = NSNumber(value: newScore)
+                        print(itemToCreate)
+                        dynamoDbObjectMapper.save(itemToCreate, completionHandler: {
+                            (error: Error?) -> Void in
+                            
+                            if let error = error {
+                                print("Amazon DynamoDB Save Error: \(error)")
+                                return
+                            }
+                            print("An item was saved.")
+                        })
+                        delete()
+                        // readDb()
+                    }
+    func delete(){
+        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+        let itemToDelete : Example = Example()
+        let va = 21
+        let newScore : Int = 222222221
+        itemToDelete._userId = String(va)
+        itemToDelete._highScore = NSNumber(value: newScore)
+        dynamoDbObjectMapper.remove(itemToDelete).continueWith(block: { (task:AWSTask!) -> AnyObject? in
+            if let error = task.error as? NSError {
+                print("The request failed. Error: \(error)")
+            } else {
+                print("Table Item deleted.")
+            }
+            return nil
+        })
+    }
     // 테이블 마다 있는게 좋을꺼같은데 어떻게할까? => 그럼 그렇게 합죠
     //dynamodb 읽어오기
     func readDb() {
@@ -243,12 +265,20 @@ class ConnectDynamoViewController: UIViewController {
     }
     func deleteTemperatureTableData(){
         let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
-        let tempToDelete = Temp()
+        let tempToDelete : Temp = Temp()
         if(temparr.count > 1){
             for i in 0 ... temparr.count - 2 {
-                tempToDelete?._temperature = String(temparr[i][1]);
-                tempToDelete?._index = NSNumber(value: temparr[i][0]);
-                dynamoDbObjectMapper.remove(tempToDelete!).continueWith(block: { (task:AWSTask!) -> AnyObject? in
+                var new = temparr[i][1] * 10
+                var string = ""
+                if new.truncatingRemainder(dividingBy: 10.0) == 0 {
+                    string = String(Int(temparr[i][1]))
+                }else{
+                    new = temparr[i][1]
+                    string = String(new)
+                }
+                tempToDelete._temperature = string;
+                tempToDelete._index = NSNumber(value: temparr[i][0]);
+                dynamoDbObjectMapper.remove(tempToDelete).continueWith(block: { (task:AWSTask!) -> AnyObject? in
                     if let error = task.error as? NSError {
                         print("The request failed. Error: \(error)")
                     } else {
@@ -266,7 +296,9 @@ class ConnectDynamoViewController: UIViewController {
                 self.tempLbl.text = String(self.temparr[0][1]) + "ºC"
             }
         }
+        
     }
+    
     func deleteCDSTableData(){
         let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
         let cdsToDelete = CDS()

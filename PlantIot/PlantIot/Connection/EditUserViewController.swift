@@ -1,17 +1,20 @@
 //
-//  CreateUserViewController.swift
+//  EditUserViewController.swift
 //  PlantIot
 //
-//  Created by 우소연 on 05/12/2019.
+//  Created by 우소연 on 10/12/2019.
 //  Copyright © 2019 YoobinJo. All rights reserved.
 //
 
 import UIKit
 
-class CreateUserViewController: UIViewController, UIPickerViewDataSource
-{
+class EditUserViewController: UIViewController, UIPickerViewDataSource {
     var selectrow = 0
     private let values: [String] = ["다육이","관엽식물","허브","덩굴식물","꽃"]
+    
+    @IBAction func cancelBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBOutlet weak var specLbl: UILabel!{
         didSet{
@@ -32,7 +35,7 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource
             specLbl.text = values[selectrow]
             nextBtn.isEnabled = true
         }else{
-           // specBtn.backgroundColor = UIColor.white
+            // specBtn.backgroundColor = UIColor.white
             specBtn.setTitleColor(UIColor.green, for: .normal)
             pickerview.isHidden = true
             specLbl.text = values[selectrow]
@@ -65,15 +68,10 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource
         pickerview.isHidden = true
         pickerview.delegate = self
         pickerview.dataSource = self
-        if UserDefaults.standard.string(forKey: "name") != nil{
-            print("userdefault")
-            print(UserDefaults.standard.string(forKey: "name"))
-            self.navigationController!.pushViewController(ConnectDynamoViewController(), animated: true)
-        }
         // Do any additional setup after loading the view.
     }
 }
-extension CreateUserViewController: UIPickerViewDelegate{
+extension EditUserViewController: UIPickerViewDelegate{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -91,4 +89,5 @@ extension CreateUserViewController: UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectrow = row
     }
+    
 }
