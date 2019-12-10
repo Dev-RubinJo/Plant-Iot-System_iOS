@@ -54,7 +54,7 @@ class ConnectDynamoViewController: UIViewController {
         //cognito unauth로 연결하기
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .APNortheast2, identityPoolId: "ap-northeast-2:dbf2e92e-a032-4b12-b28c-e74e378af20f")
         
-        let configuration = AWSServiceConfiguration(region:.APNortheast2, credentialsProvider:credentialsProvider)
+        let configuration = AWSServiceConfiguration(region:.APNortheast2, credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
         //postToDB()
         //let db : Soil = Soil()
@@ -72,6 +72,8 @@ class ConnectDynamoViewController: UIViewController {
         //postToDB()
         //createBooks()
     }
+    
+
     //dynamodb에 값 넣는 함수
                 //    func postToDB() {
                 //        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
@@ -187,13 +189,20 @@ class ConnectDynamoViewController: UIViewController {
                 //객체에 지울 인덱스와 humid값 넣기
                 humidToDelete?._humid = String(humidarr[i][1]);//객체에 지울 인덱스와 humid값 넣기
                 humidToDelete?._index = NSNumber(value: humidarr[i][0]);
-                dynamoDbObjectMapper.remove(humidToDelete!).continueWith(block: { (task:AWSTask!) -> AnyObject? in
-                    if let error = task.error as? NSError {
+//                dynamoDbObjectMapper.remove(humidToDelete!).continueWith(block: { (task: AWSTask!) -> AnyObject? in
+//                    if let error = task.error as? NSError {
+//                        print("The request failed. Error: \(error)")
+//                    } else {
+//                        print("AirHumid Table Item deleted.")
+//                    }
+//                    return nil
+//                })
+                dynamoDbObjectMapper.remove(humidToDelete!, completionHandler: { (error: Error?) -> Void in
+                    if let error = error {
                         print("The request failed. Error: \(error)")
-                    } else {
-                        print("AirHumid Table Item deleted.")
+                        return
                     }
-                    return nil
+                    print("AirHumid Table Item deleted.")
                 })
             }
             DispatchQueue.main.async {
@@ -206,6 +215,7 @@ class ConnectDynamoViewController: UIViewController {
             }
         }
     }
+    
     func deleteSoilHumidTableData(){
         let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
         let soilToDelete = Soil()
