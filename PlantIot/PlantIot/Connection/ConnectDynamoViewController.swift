@@ -65,6 +65,8 @@ class ConnectDynamoViewController: UIViewController {
         //let db : Soil = Soil()
         readDb()
         
+        self.OnoffBtn.addTarget(self, action: #selector(self.pressPlantLedOnOFFButton(_:)), for: .touchUpInside)
+        
         //readDb(_dbname: Humid)
         //readDb(_dbname: Temp)
         //        let stringMirror = Mirror(reflecting: Humid.self)
@@ -74,55 +76,64 @@ class ConnectDynamoViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        //postToDB()
-        //createBooks()
     }
     
-
-    //dynamodb에 값 넣는 함수
-                    func postToDB() {
-                        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
-                        let newScore : Int = 222222221
-                        //let objectMapper = AWSDynamoDBObjectMapper.default()
-                        //let itemToCreate : Example = Example()
-                        let va = 23
-                        //let itemToCreate : Soil = Soil()
-                        let itemToCreate : Example = Example()
-                        //itemToCreate._soilhumid = String(va)
-                        itemToCreate._userId = String(va)
-                        itemToCreate._highScore = NSNumber(value: newScore)
-                        print(itemToCreate)
-                        dynamoDbObjectMapper.save(itemToCreate, completionHandler: {
-                            (error: Error?) -> Void in
-                            
-                            if let error = error {
-                                print("Amazon DynamoDB Save Error: \(error)")
-                                return
-                            }
-                            print("An item was saved.")
-                        })
-                        delete()
-                        // readDb()
-                    }
-    func delete(){
-        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
-        let itemToDelete : Example = Example()
-        let va = 21
-        let newScore : Int = 222222221
-        itemToDelete._userId = String(va)
-        itemToDelete._highScore = NSNumber(value: newScore)
-        dynamoDbObjectMapper.remove(itemToDelete).continueWith(block: { (task:AWSTask!) -> AnyObject? in
-            if let error = task.error as? NSError {
-                print("The request failed. Error: \(error)")
-            } else {
-                print("Table Item deleted.")
-            }
-            return nil
-        })
+    @objc func pressPlantLedOnOFFButton(_ sender: UIButton) {
+        print("on")
+        
+        // MARK: TODO:: justReadDB()같은 함수 만들어서 새로고침 하는거 넣으면 어떨까?
+        
+//        self.readDb()
     }
+
+                        //dynamodb에 값 넣는 함수
+                    //                    func postToDB() {
+                    //                        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+                    //                        let newScore : Int = 222222221
+                    //                        //let objectMapper = AWSDynamoDBObjectMapper.default()
+                    //                        //let itemToCreate : Example = Example()
+                    //                        let va = 23
+                    //                        //let itemToCreate : Soil = Soil()
+                    //                        let itemToCreate : Example = Example()
+                    //                        //itemToCreate._soilhumid = String(va)
+                    //                        itemToCreate._userId = String(va)
+                    //                        itemToCreate._highScore = NSNumber(value: newScore)
+                    //                        print(itemToCreate)
+                    //                        dynamoDbObjectMapper.save(itemToCreate, completionHandler: {
+                    //                            (error: Error?) -> Void in
+                    //
+                    //                            if let error = error {
+                    //                                print("Amazon DynamoDB Save Error: \(error)")
+                    //                                return
+                    //                            }
+                    //                            print("An item was saved.")
+                    //                        })
+                    //                        delete()
+                    //                        // readDb()
+                    //                    }
+                    //    func delete(){
+                    //        let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
+                    //        let itemToDelete : Example = Example()
+                    //        let va = 21
+                    //        let newScore : Int = 222222221
+                    //        itemToDelete._userId = String(va)
+                    //        itemToDelete._highScore = NSNumber(value: newScore)
+                    //        dynamoDbObjectMapper.remove(itemToDelete).continueWith(block: { (task:AWSTask!) -> AnyObject? in
+                    //            if let error = task.error as? NSError {
+                    //                print("The request failed. Error: \(error)")
+                    //            } else {
+                    //                print("Table Item deleted.")
+                    //            }
+                    //            return nil
+                    //        })
+                    //    }
     // 테이블 마다 있는게 좋을꺼같은데 어떻게할까? => 그럼 그렇게 합죠
     //dynamodb 읽어오기
     func readDb() {
+        self.humidarr.removeAll()
+        self.soilarr.removeAll()
+        self.temparr.removeAll()
+        self.cdsarr.removeAll()
         let dynamoDbObjectMapper = AWSDynamoDBObjectMapper.default()
         let scanExpression = AWSDynamoDBScanExpression()
         //scanExpression.limit = 20//최대 스캔 갯수
@@ -199,6 +210,10 @@ class ConnectDynamoViewController: UIViewController {
             self.deleteCDSTableData()
             return nil
         })
+        self.updateUIByTime(100, completion: {
+            print(1)
+            self.readDb()
+        })
     }
     // MARK: TODO:: 각 테이블 별로 remove 혹은 delete함수 생성하기
     // ex) deleteAirHumidTableData, deleteSoilHumidTableData, etc.
@@ -232,9 +247,11 @@ class ConnectDynamoViewController: UIViewController {
             }
             
         }else{
-            DispatchQueue.main.async {
-                self.airhumidityLbl.text = String(self.humidarr[0][1]) + "%"
-            }
+            
+        }
+        DispatchQueue.main.async {
+            self.airhumidityLbl.text = String(self.humidarr[self.humidarr.count - 1][1]) + "%"
+            print("updated")
         }
     }
     
@@ -258,9 +275,11 @@ class ConnectDynamoViewController: UIViewController {
                 self.soilhumidityLbl.text = String(self.soilarr[0][1]) + "%"
             }
         }else{
-            DispatchQueue.main.async {
-                self.soilhumidityLbl.text = String(self.soilarr[0][1]) + "%"
-            }
+            
+        }
+        DispatchQueue.main.async {
+            self.soilhumidityLbl.text = String(self.soilarr[self.soilarr.count - 1][1]) + "%"
+            print("updated")
         }
     }
     func deleteTemperatureTableData(){
@@ -292,10 +311,13 @@ class ConnectDynamoViewController: UIViewController {
             }
             
         }else{
-            DispatchQueue.main.async {
-                self.tempLbl.text = String(self.temparr[0][1]) + "ºC"
-            }
+            
         }
+        DispatchQueue.main.async {
+            self.tempLbl.text = String(self.temparr[self.temparr.count - 1][1]) + "ºC"
+            print("updated")
+        }
+        
         
     }
     

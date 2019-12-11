@@ -65,6 +65,7 @@ class EditUserViewController: UIViewController, UIPickerViewDataSource {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         pickerview.isHidden = true
         pickerview.delegate = self
         pickerview.dataSource = self

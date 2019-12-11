@@ -12,6 +12,7 @@
 		4340E4472384D7FF00CE41B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4340E4462384D7FF00CE41B1 /* Assets.xcassets */; };
 		4340E44A2384D7FF00CE41B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4340E4482384D7FF00CE41B1 /* LaunchScreen.storyboard */; };
 		43839B50239E53BF00AE245D /* ConnectDynamoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43839B4F239E53BE00AE245D /* ConnectDynamoViewController.xib */; };
+		43839B52239FC72700AE245D /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43839B51239FC72700AE245D /* UIViewController.swift */; };
 		4388752A238FFCAE00C96614 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43887529238FFCAE00C96614 /* awsconfiguration.json */; };
 		43887532239001A100C96614 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43887531239001A100C96614 /* Constants.swift */; };
 		438875342390274700C96614 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438875332390274700C96614 /* CustomTabBarController.swift */; };
@@ -40,6 +41,7 @@
 		4340E4492384D7FF00CE41B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4340E44B2384D7FF00CE41B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43839B4F239E53BE00AE245D /* ConnectDynamoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectDynamoViewController.xib; sourceTree = "<group>"; };
+		43839B51239FC72700AE245D /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		43887529238FFCAE00C96614 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		43887531239001A100C96614 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		438875332390274700C96614 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				43887531239001A100C96614 /* Constants.swift */,
 				438875332390274700C96614 /* CustomTabBarController.swift */,
 				4388754823902C8400C96614 /* BaseTabBarController.swift */,
+				43839B51239FC72700AE245D /* UIViewController.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				43887532239001A100C96614 /* Constants.swift in Sources */,
 				4A4045F62394AD930036D81B /* ConnectDynamoViewController.swift in Sources */,
 				4A1D1A432397FAC2001BA774 /* SoilDb.swift in Sources */,
+				43839B52239FC72700AE245D /* UIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
