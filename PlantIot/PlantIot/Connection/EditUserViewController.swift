@@ -12,6 +12,7 @@ class EditUserViewController: UIViewController, UIPickerViewDataSource {
     var selectrow = 0
     private let values: [String] = ["다육이","관엽식물","허브","덩굴식물","꽃"]
     
+    @IBOutlet weak var viewBox: UIView!
     @IBAction func cancelBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -66,6 +67,10 @@ class EditUserViewController: UIViewController, UIPickerViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        //둥글게 UI
+        viewBox.layer.cornerRadius = 10
+        nextBtn.layer.cornerRadius = 10
+        
         pickerview.isHidden = true
         pickerview.delegate = self
         pickerview.dataSource = self
