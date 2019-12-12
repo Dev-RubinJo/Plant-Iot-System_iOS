@@ -14,7 +14,7 @@ class EditUserViewController: UIViewController, UIPickerViewDataSource {
     
     @IBOutlet weak var viewBox: UIView!
     @IBAction func cancelBtn(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var specLbl: UILabel!{
@@ -58,10 +58,12 @@ class EditUserViewController: UIViewController, UIPickerViewDataSource {
     }
     
     @IBAction func pushBtn(_ sender: Any) {
-        if(textField.text != ""){
+        if textField.text!.isEmpty {
             UserDefaults.standard.set(textField.text, forKey: "name")
             UserDefaults.standard.set(specLbl.text, forKey: "spec")
-            self.navigationController!.pushViewController(ConnectDynamoViewController(), animated: true)
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            
         }
     }
     override func viewDidLoad() {

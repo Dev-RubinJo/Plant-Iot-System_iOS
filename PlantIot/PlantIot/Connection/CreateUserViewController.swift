@@ -59,7 +59,7 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource
         if(textField.text != ""){
             UserDefaults.standard.set(textField.text, forKey: "name")
             UserDefaults.standard.set(specLbl.text, forKey: "spec")
-            self.navigationController!.pushViewController(ConnectDynamoViewController(), animated: true)
+            self.navigationController?.pushViewController(ConnectDynamoViewController(), animated: true)
         }
     }
     override func viewDidLoad() {
@@ -78,7 +78,7 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource
         if UserDefaults.standard.string(forKey: "name") != nil{
             print("userdefault")
             print(UserDefaults.standard.string(forKey: "name"))
-            self.navigationController!.pushViewController(ConnectDynamoViewController(), animated: true)
+            self.navigationController?.pushViewController(ConnectDynamoViewController(), animated: true)
         }
         // Do any additional setup after loading the view.
     }

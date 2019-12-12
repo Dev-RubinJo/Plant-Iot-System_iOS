@@ -19,12 +19,15 @@
 		43887538239027B800C96614 /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43887536239027B800C96614 /* ConnectionViewController.swift */; };
 		43887539239027B800C96614 /* ConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43887537239027B800C96614 /* ConnectionViewController.xib */; };
 		4388754923902C8400C96614 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388754823902C8400C96614 /* BaseTabBarController.swift */; };
+		43C2298823A22AD1001DEED5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2298723A22AD1001DEED5 /* BaseViewController.swift */; };
+		43C2298C23A22D2D001DEED5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2298A23A22D2D001DEED5 /* SplashViewController.swift */; };
+		43C2298D23A22D2D001DEED5 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43C2298B23A22D2D001DEED5 /* SplashViewController.xib */; };
+		43C2298F23A2617F001DEED5 /* PlantLedDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C2298E23A2617F001DEED5 /* PlantLedDB.swift */; };
 		4A1D1A432397FAC2001BA774 /* SoilDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D1A422397FAC2001BA774 /* SoilDb.swift */; };
 		4A1D1A452397FB09001BA774 /* TemperatureDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D1A442397FB09001BA774 /* TemperatureDb.swift */; };
 		4A1D1A4823980529001BA774 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D1A4623980529001BA774 /* CreateUserViewController.swift */; };
 		4A1D1A4923980529001BA774 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1D1A4723980529001BA774 /* CreateUserViewController.xib */; };
 		4A4045F62394AD930036D81B /* ConnectDynamoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */; };
-		4A4045FB2394E5910036D81B /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045FA2394E5900036D81B /* Example.swift */; };
 		4A4045FD239567F70036D81B /* HumidDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4045FC239567F70036D81B /* HumidDb.swift */; };
 		4A50D778239F7887007BDEB5 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50D776239F7887007BDEB5 /* EditUserViewController.swift */; };
 		4A50D779239F7887007BDEB5 /* EditUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A50D777239F7887007BDEB5 /* EditUserViewController.xib */; };
@@ -48,12 +51,15 @@
 		43887536239027B800C96614 /* ConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
 		43887537239027B800C96614 /* ConnectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectionViewController.xib; sourceTree = "<group>"; };
 		4388754823902C8400C96614 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		43C2298723A22AD1001DEED5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		43C2298A23A22D2D001DEED5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		43C2298B23A22D2D001DEED5 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		43C2298E23A2617F001DEED5 /* PlantLedDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantLedDB.swift; sourceTree = "<group>"; };
 		4A1D1A422397FAC2001BA774 /* SoilDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoilDb.swift; sourceTree = "<group>"; };
 		4A1D1A442397FB09001BA774 /* TemperatureDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureDb.swift; sourceTree = "<group>"; };
 		4A1D1A4623980529001BA774 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		4A1D1A4723980529001BA774 /* CreateUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
 		4A4045F42394AD930036D81B /* ConnectDynamoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectDynamoViewController.swift; sourceTree = "<group>"; };
-		4A4045FA2394E5900036D81B /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		4A4045FC239567F70036D81B /* HumidDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumidDb.swift; sourceTree = "<group>"; };
 		4A50D776239F7887007BDEB5 /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
 		4A50D777239F7887007BDEB5 /* EditUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditUserViewController.xib; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				438875302390018D00C96614 /* Config */,
+				43C2298923A22B88001DEED5 /* Splash */,
 				438875352390279100C96614 /* Connection */,
 				4340E43D2384D7FC00CE41B1 /* AppDelegate.swift */,
 				4340E43F2384D7FC00CE41B1 /* SceneDelegate.swift */,
@@ -123,6 +130,7 @@
 				438875332390274700C96614 /* CustomTabBarController.swift */,
 				4388754823902C8400C96614 /* BaseTabBarController.swift */,
 				43839B51239FC72700AE245D /* UIViewController.swift */,
+				43C2298723A22AD1001DEED5 /* BaseViewController.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -143,14 +151,23 @@
 			path = Connection;
 			sourceTree = "<group>";
 		};
+		43C2298923A22B88001DEED5 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				43C2298A23A22D2D001DEED5 /* SplashViewController.swift */,
+				43C2298B23A22D2D001DEED5 /* SplashViewController.xib */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		4A1D1A412397FAA0001BA774 /* DBmapper */ = {
 			isa = PBXGroup;
 			children = (
-				4A4045FA2394E5900036D81B /* Example.swift */,
 				4A4045FC239567F70036D81B /* HumidDb.swift */,
 				4A1D1A422397FAC2001BA774 /* SoilDb.swift */,
 				4A1D1A442397FB09001BA774 /* TemperatureDb.swift */,
 				4A585CC7239F49F600190086 /* CDSDb.swift */,
+				43C2298E23A2617F001DEED5 /* PlantLedDB.swift */,
 			);
 			path = DBmapper;
 			sourceTree = "<group>";
@@ -226,6 +243,7 @@
 				4A50D779239F7887007BDEB5 /* EditUserViewController.xib in Resources */,
 				4388752A238FFCAE00C96614 /* awsconfiguration.json in Resources */,
 				4A1D1A4923980529001BA774 /* CreateUserViewController.xib in Resources */,
+				43C2298D23A22D2D001DEED5 /* SplashViewController.xib in Resources */,
 				4340E44A2384D7FF00CE41B1 /* LaunchScreen.storyboard in Resources */,
 				4340E4472384D7FF00CE41B1 /* Assets.xcassets in Resources */,
 				43887539239027B800C96614 /* ConnectionViewController.xib in Resources */,
@@ -285,8 +303,8 @@
 				4340E43E2384D7FC00CE41B1 /* AppDelegate.swift in Sources */,
 				4A4045FD239567F70036D81B /* HumidDb.swift in Sources */,
 				4388754923902C8400C96614 /* BaseTabBarController.swift in Sources */,
+				43C2298C23A22D2D001DEED5 /* SplashViewController.swift in Sources */,
 				4340E4402384D7FC00CE41B1 /* SceneDelegate.swift in Sources */,
-				4A4045FB2394E5910036D81B /* Example.swift in Sources */,
 				4A50D778239F7887007BDEB5 /* EditUserViewController.swift in Sources */,
 				4A1D1A4823980529001BA774 /* CreateUserViewController.swift in Sources */,
 				4A1D1A452397FB09001BA774 /* TemperatureDb.swift in Sources */,
@@ -294,7 +312,9 @@
 				4A585CC8239F49F600190086 /* CDSDb.swift in Sources */,
 				438875342390274700C96614 /* CustomTabBarController.swift in Sources */,
 				43887532239001A100C96614 /* Constants.swift in Sources */,
+				43C2298F23A2617F001DEED5 /* PlantLedDB.swift in Sources */,
 				4A4045F62394AD930036D81B /* ConnectDynamoViewController.swift in Sources */,
+				43C2298823A22AD1001DEED5 /* BaseViewController.swift in Sources */,
 				4A1D1A432397FAC2001BA774 /* SoilDb.swift in Sources */,
 				43839B52239FC72700AE245D /* UIViewController.swift in Sources */,
 			);
