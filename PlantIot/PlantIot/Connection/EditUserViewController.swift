@@ -59,10 +59,10 @@ class EditUserViewController: UIViewController, UIPickerViewDataSource {
     
     @IBAction func pushBtn(_ sender: Any) {
         if textField.text!.isEmpty {
-            UserDefaults.standard.set(textField.text, forKey: "name")
-            UserDefaults.standard.set(specLbl.text, forKey: "spec")
             self.dismiss(animated: true, completion: nil)
         } else {
+            UserDefaults.standard.set(textField.text, forKey: "name")
+            UserDefaults.standard.set(specLbl.text, forKey: "spec")
             self.dismiss(animated: true, completion: nil)
         }
     }

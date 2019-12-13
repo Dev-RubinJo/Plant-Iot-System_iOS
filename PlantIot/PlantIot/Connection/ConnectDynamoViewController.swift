@@ -89,6 +89,9 @@ class ConnectDynamoViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        let plant = UserDefaults.standard.string(forKey: "name")!
+        nameLbl.text = "Hi, " + plant + "!"
+        houseLbl.text = plant + "'s House :)"
     }
     
     @objc func pressPlantLedOnOFFButton(_ sender: UIButton) {
