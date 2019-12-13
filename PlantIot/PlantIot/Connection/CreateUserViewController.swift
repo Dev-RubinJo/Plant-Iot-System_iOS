@@ -59,7 +59,9 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource
         if(textField.text != ""){
             UserDefaults.standard.set(textField.text, forKey: "name")
             UserDefaults.standard.set(specLbl.text, forKey: "spec")
-            self.navigationController?.pushViewController(ConnectDynamoViewController(), animated: true)
+            let mainVC = ConnectDynamoViewController()
+            UIApplication.shared.keyWindow?.rootViewController = mainVC
+//            self.navigationController?.pushViewController(ConnectDynamoViewController(), animated: true)
         }
     }
     override func viewDidLoad() {
@@ -83,6 +85,7 @@ class CreateUserViewController: UIViewController, UIPickerViewDataSource
         // Do any additional setup after loading the view.
     }
 }
+
 extension CreateUserViewController: UIPickerViewDelegate{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

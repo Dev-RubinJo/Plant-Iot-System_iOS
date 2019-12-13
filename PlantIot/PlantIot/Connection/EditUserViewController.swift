@@ -63,7 +63,7 @@ class EditUserViewController: UIViewController, UIPickerViewDataSource {
             UserDefaults.standard.set(specLbl.text, forKey: "spec")
             self.dismiss(animated: true, completion: nil)
         } else {
-            
+            self.dismiss(animated: true, completion: nil)
         }
     }
     override func viewDidLoad() {
